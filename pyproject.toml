@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "anglican-liturgical-colour"
+version = "0.1.0"
+description = "Library to determine liturgical dates and colours for the Anglican church"
+authors = ["Jonathan Gazeley <me@jonathangazeley.com>"]
+readme = "README.md"
+packages = [{include = "anglican_liturgical_colour"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
