@@ -5,24 +5,11 @@
 #
 # Copyright (c) 2006 Thomas Thurman <thomas@thurman.org.uk>
 #
-################################################################
-
-package DateTime::Calendar::Liturgical::Christian;
-
 ##########################################################################
-
-use strict;
-use integer;
-use vars qw(@ISA $VERSION);
-
-##########################################################################
-
-use Date::Calc qw(Date_to_Days Add_Delta_Days Day_of_Week Date_to_Text
-        Add_Delta_DHMS);
-use Storable qw(dclone);
-use Exporter qw(import);
 
 from dateutil.easter import *
+from datetime import date
+import sys
 
 ##########################################################################
 
@@ -262,78 +249,82 @@ def Day_of_Week(year, month, day):
 
 ##########################################################################
 
-sub new {
-  my ($class, %opts) = @_;
-  
-  my $y = $opts{year};
-  my $m = $opts{month};
-  my $d = $opts{day};
+def new:
+#  my ($class, %opts) = @_;
 
-  die "Need to specify year, month and day" unless $y and $m and $d;
+    # get today's date
+    today = datetime.today()
+    y = today.year
+    m = today.month
+    d = today.day
 
-  my $days = Date_to_Days($y, $m, $d);
-  my $easter = Date_to_Days($y, Date_Easter($y));
+  #die "Need to specify year, month and day" unless $y and $m and $d;
 
-  my @possibles;
+  days = Date_to_Days(y, m, d)
+  easter = Date_to_Days(y, Date_Easter(y))
+
+  possibles = []
 
   # "The Church Year consists of two cycles of feasts and holy days: one is
   #  dependent upon the movable date of the Sunday of the Resurrection or
   #  Easter Day; the other, upon the fixed date of December 25, the Feast
   #  of our Lord's Nativity or Christmas Day."
 
-  my $easter_point = $days-$easter;
-  my $christmas_point;
+  easter_point = days-easter
+  christmas_point = 0
 
   # We will store the amount of time until (-ve) or since (+ve) Christmas in
   # $christmas_point. Let's make the cut-off date the end of February,
   # since we'll be dealing with Easter-based dates after that, and it
   # avoids the problems of considering leap years.
 
-  if ($m>2) {
-      $christmas_point = $days - Date_to_Days($y, 12, 25);
-  } else {
-      $christmas_point = $days - Date_to_Days($y-1, 12, 25);
-  }
+  if m>2:
+      christmas_point = days - Date_to_Days(y, 12, 25)
+  else:
+      christmas_point = days - Date_to_Days(y-1, 12, 25)
 
   # First, figure out the season.
-  my ($season, $weekno);
+  season = ''
+  weekno = None
 
-  my $advent_sunday = advent_sunday($y);
+  advent_sunday = advent_sunday(y)
 
-  if ($easter_point>-47 && $easter_point<0) {
-      $season = 'Lent';
-      $weekno = ($easter_point+50)/7;
+  if easter_point > -47 and easter_point < 0:
+      season = 'Lent'
+      weekno = (easter_point+50) // 7;
       # FIXME: The ECUSA calendar seems to indicate that Easter Eve ends
       # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
       # in both? Maybe the daytime is in Lent and the night is in Easter?
-  } elsif ($easter_point>=0 && $easter_point<=49) {
+  elif easter_point >= 0 and easter_point <= 49:
       # yes, this is correct: Pentecost itself is in Easter season;
       # Pentecost season actually begins on the day after Pentecost.
       # Its proper name is "The Season After Pentecost".
-      $season = 'Easter';
-      $weekno = $easter_point/7;
-  } elsif ($christmas_point>=$advent_sunday && $christmas_point<=-1) {
-      $season = 'Advent';
-      $weekno = 1+($christmas_point-$advent_sunday)/7;
-  } elsif ($christmas_point>=0 && $christmas_point<=11) {
+      season = 'Easter';
+      weekno = easter_point // 7
+  elif christmas_point >= advent_sunday and christmas_point <= -1:
+      season = 'Advent'
+      weekno = 1 + (christmas_point-advent_sunday) // 7
+  elif christmas_point >= 0 and christmas_point <= 11:
       # The Twelve Days of Christmas.
-      $season = 'Christmas';
-      $weekno = 1+$christmas_point/7;
-  } elsif ($christmas_point>=12 && $easter_point <= -47) {
-      $season = 'Epiphany';
-      $weekno = 1+($christmas_point-12)/7;
-  } else {
-      $season = 'Pentecost';
-      $weekno = 1+($easter_point-49)/7;
-  }
+      season = 'Christmas'
+      weekno = 1 + christmas_point // 7
+  elif christmas_point >= 12 and easter_point <= -47:
+      season = 'Epiphany'
+      weekno = 1 + (christmas_point-12) // 7
+  else:
+      season = 'Pentecost'
+      weekno = 1 + (easter_point - 49) // 7
 
   # Now, look for feasts.
 
-  my $feast_from_Easter    = $feasts{$easter_point};
-  my $feast_from_Christmas = $feasts{10000+100*$m+$d};
+  feast_from_Easter    = feasts[easter_point]
+  feast_from_Christmas = feasts[10000+100*m+d]
 
-  push @possibles, $feast_from_Easter if $feast_from_Easter;
-  push @possibles, $feast_from_Christmas if $feast_from_Christmas;
+  if feast_from_Easter:
+    possibles.append(feast_from_Easter)
+
+  if feast_from_Christmas:
+    possibles.append(feast_from_Christmas)
 
   # Maybe transferred from yesterday.
 
@@ -341,10 +332,10 @@ sub new {
       my ($yestery, $yesterm, $yesterd) = Add_Delta_Days(1, 1, 1, $days-2);
       my $transferred = $class->new(
           %opts,
-          year => $yestery,
-          month => $yesterm,
-          day => $yesterd,
-          transferred=>1,
+          year = $yestery,
+          month = $yesterm,
+          day = $yesterd,
+          transferred=1,
       );
 
       if ($transferred) {
@@ -354,13 +345,12 @@ sub new {
   }
 
   # Maybe a Sunday.
-
-  push @possibles, { prec=>5, name=>"$season $weekno" }
-        if Day_of_Week($y, $m, $d)==7;
+  if Day_of_Week(y, m, d) == 7:
+    possibles.append({ 'prec': 5, name: f"{season} {weekno}" })
 
   # So, which event takes priority?
 
-  @possibles = sort { $b->{prec} <=> $a->{prec} } @possibles;
+  possibles = sorted(possibles.items(), key = lambda tup: (tup[1]['prec']))
 
   if ($opts{transferred}) {
       # If two feasts coincided today, we were asked to find
@@ -370,41 +360,43 @@ sub new {
       return $possibles[1];
   }
   
-  my $result = ${dclone(\($possibles[0]))};
-  $result = { name=>'', prec=>1 } unless $result;
-  $result = { %opts, %$result, season=>$season, weekno=>$weekno };
+  # Get first item
+  result = list(possibles.keys())[0]
 
-  if ($opts{rose}) {
-      my %rose_days = ( 'Advent 2'=>1, 'Lent 3'=>1 );
-      $result->{colour} = 'rose' if $rose_days{$result->{name}};
-  }
+  if result is None:
+    result = { 'name': '', 'prec': 1 }
+  result = { %opts, %$result, season=$season, weekno=$weekno };
 
-  if (!defined $result->{colour}) {
-      if ($result->{prec}>2 && $result->{prec}!=5) {
+  rose_days = { 'Advent 2': 1, 'Lent 3': 1 }
+  if result['name'] in rose_days.keys():
+  result['colour'] = 'rose'
+
+  if (!defined result['colour']) {
+      if (result['prec']>2 && result['prec']!=5) {
           # feasts are generally white,
           # unless marked differently.
           # But martyrs are red, and Marian
           # feasts *might* be blue.
-          if ($result->{martyr}) {
-              $result->{colour} = 'red';
-          } elsif ($opts{bvm_blue} && $result->{bvm}) {
-              $result->{colour} = 'blue';
+          if (result['martyr']) {
+              result['colour'] = 'red';
+          } elsif ($opts{bvm_blue} && result['bvm']) {
+              result['colour'] = 'blue';
           } else {
-              $result->{colour} = 'white';
+              result['colour'] = 'white';
           }
       } else {
           # Not a feast day.
           if ($season eq 'Lent') {
-              $result->{colour} = 'purple';
+              result['colour'] = 'purple';
           } elsif ($season eq 'Advent') {
               if ($opts{advent_blue}) {
-                  $result->{colour} = 'blue';
+                  result['colour'] = 'blue';
               } else {
-                  $result->{colour} = 'purple';
+                  result['colour'] = 'purple';
               }
           } else {
               # The great fallback:
-              $result->{colour} = 'green';
+              result['colour'] = 'green';
           }
       }
   }
@@ -412,18 +404,15 @@ sub new {
   # Two special cases for Christmas-based festivals which
   # depend on the day of the week.
 
-  if ($result->{prec} == 5) { # An ordinary Sunday
-      if ($christmas_point == $advent_sunday) {
-          $result->{name} = 'Advent Sunday';
-          $result->{colour} = 'white';
-      } elsif ($christmas_point == $advent_sunday-7) {
-          $result->{name} = 'Christ the King';
-          $result->{colour} = 'white';
-      }
-  }
+  if result['prec'] == 5: # An ordinary Sunday
+      if christmas_point == advent_sunday:
+          result['name'] = 'Advent Sunday';
+          result['colour'] = 'white';
+      elif: christmas_point == advent_sunday-7:
+          result['name'] = 'Christ the King';
+          result['colour'] = 'white';
 
-  return bless($result, $class);
-}
+  return (result, class)
  
 sub year   { my ($self)=@_; return $self->{year};   }
 sub month  { my ($self)=@_; return $self->{month};  }
@@ -452,13 +441,13 @@ sub from_object {
         Add_Delta_DHMS(1, 1, 1, 0, 0, 0, $days-1, 0, 0, $secs);
 
     return $class->new(
-        day => $d,
-        month => $m,
-        year => $y,
-        hour => $hour,
-        minute => $min,
-        seconds => $seconds,
-        nanosecond => $nanosecs,
+        day = $d,
+        month = $m,
+        year = $y,
+        hour = $hour,
+        minute = $min,
+        seconds = $seconds,
+        nanosecond = $nanosecs,
     );
 }
 
