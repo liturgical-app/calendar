@@ -254,6 +254,14 @@ def Date_to_Days(year, month, day):
     # Print the number of days in the time difference
     return(delta.days)
 
+def Day_of_Week(year, month, day):
+
+    # Define a start date as passed in
+    f_date = date(year, month, day)
+
+    # Return ISO week day, in range 1-7
+    return(f_date.isoweekday)
+
 ##########################################################################
 
 sub new {
