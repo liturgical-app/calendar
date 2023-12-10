@@ -22,6 +22,8 @@ use Date::Calc qw(Date_to_Days Add_Delta_Days Day_of_Week Date_to_Text
 use Storable qw(dclone);
 use Exporter qw(import);
 
+from dateutil.easter import *
+
 ##########################################################################
 
 $VERSION = '0.10';
@@ -232,23 +234,13 @@ my feasts = {
 
 }
 
-# This returns the date easter occurs on for a given year as ($month,$day).
-# This is from the Calendar FAQ.
-# Taken from Date::Manip.
-sub Date_Easter {
-  my($y)=@_;
+# This returns the date easter occurs on for a given year as (month,day).
+def Date_Easter(year):      
+    easter_date = easter(year)
+    easter_month = easter_date.month
+    easter_day = easter_date.day
+    return(easter_month, easter_day)
 
-  my($c) = $y/100;
-  my($g) = $y % 19;
-  my($k) = ($c-17)/25;
-  my($i) = ($c - $c/4 - ($c-$k)/3 + 19*$g + 15) % 30;
-  $i     = $i - ($i/28)*(1 - ($i/28)*(29/($i+1))*((21-$g)/11));
-  my($j) = ($y + $y/4 + $i + 2 - $c + $c/4) % 7;
-  my($l) = $i-$j;
-  my($m) = 3 + ($l+40)/44;
-  my($d) = $l + 28 - 31*($m/4);
-  return ($m,$d);
-}
 
 sub advent_sunday {
     my ($y) = @_;
