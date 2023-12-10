@@ -234,10 +234,8 @@ def Date_Easter(year):
     return(easter_month, easter_day)
 
 
-sub advent_sunday {
-    my ($y) = @_;
-    return -(Day_of_Week($y,12,25) + 4*7);
-}
+def advent_sunday(year):
+    return -(Day_of_Week(y,12,25) + 4*7)
 
 def Date_to_Days(year, month, day):
 
