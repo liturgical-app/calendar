@@ -348,27 +348,28 @@ def new():
 
     possibles = sorted(possibles.items(), key = lambda tup: (tup[1]['prec']))
 
-    if (opts['transferred']) {
+    if opts['transferred']:
         # If two feasts coincided today, we were asked to find
         # the one which got transferred.
         # But Sundays don't get transferred!
-        return undef if $possibles[1] && $possibles[1]->{prec}==5;
-        return $possibles[1];
-    }
+        if possibles[1] and possibles[1]['prec'] == 5:
+            return None
+        else:
+            return possibles[1]
     
     # Get first item
     result = list(possibles.keys())[0]
 
     if result is None:
         result = { 'name': '', 'prec': 1 }
-    result = { %opts, %$result, season=$season, weekno=$weekno };
+    result = { opts, result, season=season, weekno=weekno }
 
     rose_days = { 'Advent 2': 1, 'Lent 3': 1 }
     if result['name'] in rose_days.keys():
         result['colour'] = 'rose'
 
     if result['colour'] is None:
-        if (result['prec'] > 2 and result['prec'] != 5):
+        if result['prec'] > 2 and result['prec'] != 5:
             # feasts are generally white, unless marked differently.
             # But martyrs are red, and Marian feasts *might* be blue.
             if result['martyr']:
