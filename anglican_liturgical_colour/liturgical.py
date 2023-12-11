@@ -87,7 +87,7 @@ feasts = {
     10321 : { 'name': 'Thomas Ken', 'prec':3},
     10322 : { 'name': 'James De Koven', 'prec':3},
     10323 : { 'name': 'Gregory the Illuminator', 'prec':3},
-    10325 : { 'name': 'Annunciation of our Lord', 'bvm':1, 'prec':4},
+    10325 : { 'name': 'Annunciation of our Lord', 'prec':4},
     10327 : { 'name': 'Charles Henry Brent', 'prec':3},
     10329 : { 'name': 'John Keble', 'prec':3},
     10331 : { 'name': 'John Donne', 'prec':3},
@@ -113,7 +113,7 @@ feasts = {
     10524 : { 'name': 'Jackson Kemper', 'prec':3},
     10525 : { 'name': 'Bede', 'prec':3},
     10526 : { 'name': 'Augustine of Canterbury', 'prec':3},
-    10531 : { 'name': 'Visitation of Mary', 'bvm':1, 'prec':4},
+    10531 : { 'name': 'Visitation of Mary', 'prec':4},
 
     10601 : { 'name': 'Justin', 'prec':3},
     10602 : { 'name': 'Martyrs of Lyons', 'martyr':1, 'prec':3},
@@ -135,7 +135,7 @@ feasts = {
     10722 : { 'name': 'Mary Magdalene', 'prec':4},
     10724 : { 'name': 'Thomas a Kempis', 'prec':3},
     10725 : { 'name': 'James the Apostle', 'prec':4},
-    10726 : { 'name': 'Parents of the Blessed Virgin Mary', 'bvm':1, 'prec':3},
+    10726 : { 'name': 'Parents of the Blessed Virgin Mary', 'prec':3},
     10727 : { 'name': 'William Reed Huntington', 'prec':3},
     10729 : { 'name': 'Mary and Martha', 'prec':4},
     10730 : { 'name': 'William Wilberforce', 'prec':3},
@@ -147,7 +147,7 @@ feasts = {
     10810 : { 'name': 'Lawrence', 'martyr':1, 'prec':3},
     10811 : { 'name': 'Clare', 'prec':3},
     10813 : { 'name': 'Jeremy Taylor', 'prec':3},
-    10815 : { 'name': 'Mary the Virgin', 'bvm':1, 'prec':4},
+    10815 : { 'name': 'Mary the Virgin', 'prec':4},
     10818 : { 'name': 'William Porcher DuBose', 'prec':3},
     10820 : { 'name': 'Bernard', 'prec':3},
     10824 : { 'name': 'Bartholemew', 'prec':4},
@@ -371,11 +371,9 @@ def new():
     if result['colour'] is None:
         if result['prec'] > 2 and result['prec'] != 5:
             # feasts are generally white, unless marked differently.
-            # But martyrs are red, and Marian feasts *might* be blue.
+            # But martyrs are red
             if result['martyr']:
                 result['colour'] = 'red'
-            elif opts['bvm_blue'] and result['bvm']:
-                result['colour'] = 'blue'
             else:
                 result['colour'] = 'white'
         else:
@@ -410,7 +408,6 @@ def new():
     sub color  { goto &colour; }
     sub season { my ($self)=@_; return $self->{season}; }
     sub name   { my ($self)=@_; return $self->{name};   }
-    sub bvm    { my ($self)=@_; return $self->{bvm};    }
 
 
 sub utc_rd_values {
