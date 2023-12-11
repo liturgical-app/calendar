@@ -371,35 +371,30 @@ def new():
   if result['name'] in rose_days.keys():
   result['colour'] = 'rose'
 
-  if (!defined result['colour']) {
-      if (result['prec']>2 && result['prec']!=5) {
+  if result['colour'] is None:
+      if (result['prec'] > 2 and result['prec'] != 5):
           # feasts are generally white,
           # unless marked differently.
           # But martyrs are red, and Marian
           # feasts *might* be blue.
-          if (result['martyr']) {
-              result['colour'] = 'red';
-          } elsif ($opts{bvm_blue} && result['bvm']) {
-              result['colour'] = 'blue';
-          } else {
-              result['colour'] = 'white';
-          }
-      } else {
+          if result['martyr']:
+              result['colour'] = 'red'
+          elif opts['bvm_blue'] and result['bvm']:
+              result['colour'] = 'blue'
+          else:
+              result['colour'] = 'white'
+      else:
           # Not a feast day.
-          if ($season eq 'Lent') {
-              result['colour'] = 'purple';
-          } elsif ($season eq 'Advent') {
-              if ($opts{advent_blue}) {
-                  result['colour'] = 'blue';
-              } else {
-                  result['colour'] = 'purple';
-              }
-          } else {
+          if season is 'Lent':
+              result['colour'] = 'purple'
+          elif season eq 'Advent':
+              if opts['advent_blue']:
+                  result['colour'] = 'blue'
+              else:
+                  result['colour'] = 'purple'
+          else:
               # The great fallback:
-              result['colour'] = 'green';
-          }
-      }
-  }
+              result['colour'] = 'green'
 
   # Two special cases for Christmas-based festivals which
   # depend on the day of the week.
