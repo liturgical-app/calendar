@@ -8,7 +8,7 @@
 ##########################################################################
 
 from dateutil.easter import *
-from datetime import date
+from datetime import date, today
 import sys
 
 ##########################################################################
@@ -249,11 +249,11 @@ def Day_of_Week(year, month, day):
 
 ##########################################################################
 
-def new:
+def new():
 #  my ($class, %opts) = @_;
 
     # get today's date
-    today = datetime.today()
+    today = today()
     y = today.year
     m = today.month
     d = today.day
