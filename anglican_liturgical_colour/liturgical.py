@@ -472,13 +472,12 @@ def new():
     sub name   { my ($self)=@_; return $self->{name};   }
 
 
-sub utc_rd_values {
-    my ($self)=@_;
+def utc_rd_values(self) {
     return (
-        Date_to_Days($self->{year}, $self->{month}, $self->{day})-1,
+        Date_to_Days(self['year'], self['month'], self['day'])-1,
         0,
         0,
-    );
+    )
 }
 
 sub from_object {
