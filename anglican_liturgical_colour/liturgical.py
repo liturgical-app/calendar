@@ -340,14 +340,14 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
         weekno = 1 + (easter_point - 49) // 7
 
     # Now, look for feasts.
-    feast_from_Easter    = feasts[easter_point]
-    feast_from_Christmas = feasts[10000+100*m+d]
+    feast_from_easter    = feasts[easter_point]
+    feast_from_christmas = feasts[10000+100*m+d]
 
-    if feast_from_Easter:
-        possibles.append(feast_from_Easter)
+    if feast_from_easter:
+        possibles.append(feast_from_easter)
 
-    if feast_from_Christmas:
-        possibles.append(feast_from_Christmas)
+    if feast_from_christmas:
+        possibles.append(feast_from_christmas)
 
     # Maybe transferred from yesterday.
     unless (opts['transferred']) { # don't go round infinitely
