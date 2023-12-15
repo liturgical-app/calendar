@@ -4,6 +4,7 @@ Helper functions for date manipulation
 
 from datetime import date
 from dateutil.easter import easter
+from juliandate import to_gregorian
 
 def get_easter(year):
     """
@@ -49,3 +50,10 @@ def day_of_week(year, month, day):
 
     # Return ISO week day, in range 1-7
     return f_date.isoweekday()
+
+def add_delta_days(days):
+    """
+    Convert Julian date back to year,month, day
+    """
+    year, mon, day, hour, min, sec, micro = to_gregorian(days)
+    return year, mon, day

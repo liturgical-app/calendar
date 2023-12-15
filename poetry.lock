@@ -55,6 +55,17 @@ files = [
 colors = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "juliandate"
+version = "1.0.3"
+description = "Julian date conversions"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "juliandate-1.0.3-py3-none-any.whl", hash = "sha256:baed37a8065f5adbc1505cb1d9a2bb4a081345d8cf1ffad107812fa8ad8eba2b"},
+    {file = "juliandate-1.0.3.tar.gz", hash = "sha256:95a2c2818cce34f549b03020120aaea21738e45f65827069b5aad6b631de18d3"},
+]
+
+[[package]]
 name = "lazy-object-proxy"
 version = "1.10.0"
 description = "A fast and thorough lazy object proxy."
@@ -243,4 +254,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1c9d4cfaf2b466b3a575873b201a790050dbf74f9eb3adc15a97252ffa14aa0c"
+content-hash = "53e57229c1b80fa408a384f14ef30fe6e36c38185bd4b39c8dea837bc10e1e64"

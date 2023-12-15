@@ -9,7 +9,7 @@
 
 import sys
 from datetime import date
-from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week
+from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days
 
 ##########################################################################
 
