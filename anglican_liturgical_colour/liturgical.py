@@ -344,8 +344,8 @@ def anglican_liturgical_colour(f_date: str = str(date.today()), transferred: boo
         weekno = 1 + (easter_point - 49) // 7
 
     # Now, look for feasts.
-    feast_from_easter    = feasts[easter_point]
-    feast_from_christmas = feasts[10000+100*m+d]
+    feast_from_easter    = feasts.get(easter_point)
+    feast_from_christmas = feasts.get(10000+100*m+d)
 
     if feast_from_easter:
         possibles.append(feast_from_easter)
