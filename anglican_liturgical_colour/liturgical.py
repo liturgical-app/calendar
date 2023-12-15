@@ -314,7 +314,7 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
 
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
-        weekno = (easter_point+50) // 7;
+        weekno = (easter_point+50) // 7
         # FIXME: The ECUSA calendar seems to indicate that Easter Eve ends
         # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
         # in both? Maybe the daytime is in Lent and the night is in Easter?
@@ -322,7 +322,7 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
         # yes, this is correct: Pentecost itself is in Easter season;
         # Pentecost season actually begins on the day after Pentecost.
         # Its proper name is "The Season After Pentecost".
-        season = 'Easter';
+        season = 'Easter'
         weekno = easter_point // 7
     elif christmas_point >= advent_sunday and christmas_point <= -1:
         season = 'Advent'
