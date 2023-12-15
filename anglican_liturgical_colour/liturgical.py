@@ -15,7 +15,8 @@ from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week
 
 feasts = {
 
-    # Anglican Holy Days are variously categorised as Principal Feasts, Festivals, Lesser Festivals, or Commemorations
+    # Anglican Holy Days are variously categorised as Principal Feasts,
+    # Festivals, Lesser Festivals, or Commemorations
     # The observance of Lesser Festivals or Commemorations is optional.
     # Principal Feasts = prec 9
     # Festivals        = prec 7
