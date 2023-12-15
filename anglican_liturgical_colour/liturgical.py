@@ -448,11 +448,11 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
     # depend on the day of the week.
     if result['prec'] == 5: # An ordinary Sunday
         if christmas_point == advent_sunday:
-            result['name'] = 'Advent Sunday';
-            result['colour'] = 'white';
-        elif: christmas_point == advent_sunday-7:
-            result['name'] = 'Christ the King';
-            result['colour'] = 'white';
+            result['name'] = 'Advent Sunday'
+            result['colour'] = 'white'
+        elif christmas_point == advent_sunday-7:
+            result['name'] = 'Christ the King'
+            result['colour'] = 'white'
 
     return (result)
 
