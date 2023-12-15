@@ -427,7 +427,7 @@ def anglican_liturgical_colour(f_date: str = str(date.today()), transferred: boo
             result['name'] = 'Christ the King'
             result['colour'] = 'white'
 
-    return (result)
+    return result
 
 def main():
     """
