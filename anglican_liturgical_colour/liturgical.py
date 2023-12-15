@@ -35,7 +35,7 @@ feasts = {
     # And others:
     -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'prec':7 },
     # is the colour of Shrove Tuesday right?
-    -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'prec':7 }, 
+    -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'prec':7 },
     # Actually, Easter Eve doesn't have a colour
     -1: { 'name': 'Easter Eve', 'colour':'purple', 'prec':7 },
     -2: { 'name': 'Good Friday', 'colour':'purple', 'prec':7 },
@@ -382,7 +382,7 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
             return None
         else:
             return possibles[1]
-    
+
     # Get first item
     result = list(possibles.keys())[0]
 
