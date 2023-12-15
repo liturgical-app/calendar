@@ -4,7 +4,7 @@ Helper functions for date manipulation
 
 from datetime import date
 from dateutil.easter import easter
-from juliandate import to_gregorian
+from juliandate import to_gregorian, from_gregorian
 
 def get_easter(year):
     """
@@ -26,19 +26,7 @@ def date_to_days(year, month, day):
     """
     Convert a date from year,month,day to Julian days
     """
-
-    # Define a start date as passed in
-    f_date = date(year, month, day)
-
-    # Define an end date as 1st of January of the year 1 A.D.
-    # This is defined in Perl Date::Calm
-    l_date = date(1, 1, 1)
-
-    # Calculate the difference between the end date and start date
-    delta = l_date - f_date
-
-    # Print the number of days in the time difference
-    return delta.days
+    return from_gregorian(year, month, day)
 
 def day_of_week(year, month, day):
     """
