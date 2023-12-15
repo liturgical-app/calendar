@@ -286,7 +286,8 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
 
     # Calculate some values in Julian date
     days = date_to_days(y, m, d)
-    easterday = date_to_days(y, get_easter(y))
+    easterm, easterd = get_easter(y)
+    easterday = date_to_days(y, easterm, easterd)
 
     possibles = []
 

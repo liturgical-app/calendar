@@ -12,7 +12,7 @@ def get_easter(year):
     easter_date = easter(year)
     easter_month = easter_date.month
     easter_day = easter_date.day
-    return (easter_month, easter_day)
+    return easter_month, easter_day
 
 
 def get_advent_sunday(year):
