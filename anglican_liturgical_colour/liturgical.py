@@ -309,14 +309,11 @@ def Day_of_Week(year, month, day):
 
 ##########################################################################
 
-def new():
-#  my ($class, %opts) = @_;
+def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
 
-    # get today's date
-    today = today()
-    y = today.year
-    m = today.month
-    d = today.day
+    y = date.year
+    m = date.month
+    d = date.day
 
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
@@ -476,20 +473,19 @@ def utc_rd_values(self) {
     )
 }
 
-sub from_object {
-    my ($class, $object)=@_;
-    my ($days, $secs, $nanosecs) = $object->utc_rd_values();
+def main():
+    """
+    Display liturgical info to a human user
+    """
 
-    my ($y, $m, $d, $hour, $min, $seconds) =
-        Add_Delta_DHMS(1, 1, 1, 0, 0, 0, $days-1, 0, 0, $secs);
+    # Read in args
+    if len(sys.argv) > 1:
+        mydate = sys.argv[1]
+    else:
+        mydate = None
 
-    return $class->new(
-        day = $d,
-        month = $m,
-        year = $y,
-        hour = $hour,
-        minute = $min,
-        seconds = $seconds,
-        nanosecond = $nanosecs,
-    );
-}
+    labels = anglican_liturgical_colour(mydate)
+    print(labels)
+
+if __name__ == '__main__':
+    main()
