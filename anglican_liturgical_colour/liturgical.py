@@ -320,24 +320,23 @@ def new():
 
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
+    # Calculate some values in Julian date
     days = Date_to_Days(y, m, d)
     easter = Date_to_Days(y, Date_Easter(y))
 
     possibles = []
 
-  # "The Church Year consists of two cycles of feasts and holy days: one is
-  #  dependent upon the movable date of the Sunday of the Resurrection or
-  #  Easter Day; the other, upon the fixed date of December 25, the Feast
-  #  of our Lord's Nativity or Christmas Day."
-
+    # "The Church Year consists of two cycles of feasts and holy days: one is
+    #  dependent upon the movable date of the Sunday of the Resurrection or
+    #  Easter Day; the other, upon the fixed date of December 25, the Feast
+    #  of our Lord's Nativity or Christmas Day."
     easter_point = days-easter
     christmas_point = 0
 
     # We will store the amount of time until (-ve) or since (+ve) Christmas in
-    # $christmas_point. Let's make the cut-off date the end of February,
+    # christmas_point. Let's make the cut-off date the end of February,
     # since we'll be dealing with Easter-based dates after that, and it
     # avoids the problems of considering leap years.
-
     if m>2:
         christmas_point = days - Date_to_Days(y, 12, 25)
     else:
