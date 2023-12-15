@@ -382,10 +382,13 @@ def anglican_liturgical_colour(f_date: str = str(date.today()), transferred: boo
         # If two feasts coincided today, we were asked to find
         # the one which got transferred.
         # But Sundays don't get transferred!
-        if possibles[1] and possibles[1]['prec'] == 5:
+        try:
+            if possibles[0] and possibles[0]['prec'] == 5:
+                return None
+            else:
+                return possibles[1]
+        except IndexError:
             return None
-        else:
-            return possibles[1]
 
     # Get first item
     result = list(possibles.keys())[0]
