@@ -412,9 +412,9 @@ def anglican_liturgical_colour(f_date: str = str(date.today()), transferred: boo
                 result['colour'] = 'white'
         else:
             # Not a feast day.
-            if season is 'Lent':
+            if season == 'Lent':
                 result['colour'] = 'purple'
-            elif season is 'Advent':
+            elif season == 'Advent':
                 result['colour'] = 'purple'
             else:
                 # The great fallback:
