@@ -456,14 +456,6 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
 
     return (result)
 
-def utc_rd_values(self) {
-    return (
-        Date_to_Days(self['year'], self['month'], self['day'])-1,
-        0,
-        0,
-    )
-}
-
 def main():
     """
     Display liturgical info to a human user
