@@ -8,7 +8,7 @@
 ##########################################################################
 
 import sys
-from datetime import date
+from datetime import date, datetime
 from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days
 
 ##########################################################################
@@ -276,8 +276,12 @@ feasts = {
 
 ##########################################################################
 
-def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = False):
+def anglican_liturgical_colour(f_date: str = str(date.today()), transferred: bool = False):
+    """
+    Return the liturgical colour for a given day
+    """
 
+    f_date = datetime.strptime(f_date, "%Y-%M-%d")
     y = f_date.year
     m = f_date.month
     d = f_date.day
