@@ -7,9 +7,8 @@
 #
 ##########################################################################
 
-from dateutil.easter import *
-from datetime import date, today
 import sys
+from datetime import date
 from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week
 
 ##########################################################################
@@ -276,11 +275,11 @@ feasts = {
 
 ##########################################################################
 
-def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
+def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = False):
 
-    y = date.year
-    m = date.month
-    d = date.day
+    y = f_date.year
+    m = f_date.month
+    d = f_date.day
 
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
