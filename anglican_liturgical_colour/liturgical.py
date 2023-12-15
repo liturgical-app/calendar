@@ -442,11 +442,8 @@ def new():
             # Not a feast day.
             if season is 'Lent':
                 result['colour'] = 'purple'
-            elif season eq 'Advent':
-                if opts['advent_blue']:
-                    result['colour'] = 'blue'
-                else:
-                    result['colour'] = 'purple'
+            elif season is 'Advent':
+                result['colour'] = 'purple'
             else:
                 # The great fallback:
                 result['colour'] = 'green'
