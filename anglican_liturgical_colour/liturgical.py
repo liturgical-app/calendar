@@ -454,16 +454,7 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
             result['name'] = 'Christ the King';
             result['colour'] = 'white';
 
-    return (result, class)
- 
-    sub year   { my ($self)=@_; return $self->{year};   }
-    sub month  { my ($self)=@_; return $self->{month};  }
-    sub day    { my ($self)=@_; return $self->{day};    }
-    sub colour { my ($self)=@_; return $self->{colour}; }
-    sub color  { goto &colour; }
-    sub season { my ($self)=@_; return $self->{season}; }
-    sub name   { my ($self)=@_; return $self->{name};   }
-
+    return (result)
 
 def utc_rd_values(self) {
     return (
