@@ -387,7 +387,8 @@ def anglican_liturgical_colour(f_date: str = date.today(), transferred: bool = F
 
     if result is None:
         result = { 'name': '', 'prec': 1 }
-    result = { opts, result, season=season, weekno=weekno }
+    result['season'] = season
+    result['weekno'] = weekno
 
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
