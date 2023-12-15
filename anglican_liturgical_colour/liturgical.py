@@ -10,6 +10,7 @@
 from dateutil.easter import *
 from datetime import date, today
 import sys
+from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week
 
 ##########################################################################
 
@@ -273,51 +274,6 @@ feasts = {
     11231: { 'name': 'John Wyclif', 'prec':3},
 }
 
-def date_easter(year):
-    """
-    Returns the date easter occurs on for a given year as (month,day)
-    """
-    easter_date = easter(year)
-    easter_month = easter_date.month
-    easter_day = easter_date.day
-    return (easter_month, easter_day)
-
-
-def advent_sunday(year):
-    """
-    Return date of Advent Sunday, in days relative to Christmas day
-    """
-    return -(day_of_week(year,12,25) + 4*7)
-
-def date_to_days(year, month, day):
-    """
-    Convert a date from year,month,day to Julian days
-    """
-
-    # Define a start date as passed in
-    f_date = date(year, month, day)
-
-    # Define an end date as 1st of January of the year 1 A.D.
-    # This is defined in Perl Date::Calm
-    l_date = date(1, 1, 1)
-
-    # Calculate the difference between the end date and start date
-    delta = l_date - f_date
-
-    # Print the number of days in the time difference
-    return delta.days
-
-def day_of_week(year, month, day):
-    """
-    Return ISO day of week for any given date in year,month,day format
-    """
-
-    # Define a start date as passed in
-    f_date = date(year, month, day)
-
-    # Return ISO week day, in range 1-7
-    return f_date.isoweekday
-
 ##########################################################################
 
 def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
@@ -329,8 +285,8 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
     # Calculate some values in Julian date
-    days = Date_to_Days(y, m, d)
-    easter = Date_to_Days(y, Date_Easter(y))
+    days = date_to_days(y, m, d)
+    easterday = date_to_days(y, get_easter(y))
 
     possibles = []
 
@@ -338,7 +294,7 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
     #  dependent upon the movable date of the Sunday of the Resurrection or
     #  Easter Day; the other, upon the fixed date of December 25, the Feast
     #  of our Lord's Nativity or Christmas Day."
-    easter_point = days-easter
+    easter_point = days-easterday
     christmas_point = 0
 
     # We will store the amount of time until (-ve) or since (+ve) Christmas in
@@ -354,7 +310,7 @@ def anglican_liturgical_colour(date: str = today(), transferred: bool = False):
     season = ''
     weekno = None
 
-    advent_sunday = advent_sunday(y)
+    advent_sunday = get_advent_sunday(y)
 
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
