@@ -48,4 +48,4 @@ def day_of_week(year, month, day):
     f_date = date(year, month, day)
 
     # Return ISO week day, in range 1-7
-    return f_date.isoweekday
+    return f_date.isoweekday()
