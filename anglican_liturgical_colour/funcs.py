@@ -2,7 +2,7 @@
 Helper functions for date manipulation
 """
 
-from datetime import date
+from datetime import date, datetime
 from dateutil.easter import easter
 from juliandate import to_gregorian, from_gregorian
 
@@ -45,3 +45,12 @@ def add_delta_days(days):
     """
     year, mon, day, hour, min, sec, micro = to_gregorian(days)
     return year, mon, day
+
+
+def todays_date():
+    """
+    Return today's date in YYYY-MM-DD format
+    """
+    now = datetime.now() # current date and time
+    today = now.strftime("%Y-%m-%d")
+    return today
