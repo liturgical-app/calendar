@@ -405,11 +405,11 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
         result['colour'] = 'rose'
 
-    if result['colour'] is None:
+    if result.get('colour') is None:
         if result['prec'] > 2 and result['prec'] != 5:
             # feasts are generally white, unless marked differently.
             # But martyrs are red
-            if result['martyr']:
+            if result.get('martyr'):
                 result['colour'] = 'red'
             else:
                 result['colour'] = 'white'
