@@ -358,31 +358,25 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
         possibles.append(feast_from_christmas)
 
     # Maybe transferred from yesterday.
-    unless (opts['transferred']) { # don't go round infinitely
-        my ($yestery, $yesterm, $yesterd) = Add_Delta_Days(1, 1, 1, $days-2);
-        my $transferred = $class->new(
-            %opts,
-            year = $yestery,
-            month = $yesterm,
-            day = $yesterd,
-            transferred=1,
-        );
+    # Call recursively to look for yesterday feast and push to possibles
+    if transferred is False:
+        yestery, yesterm, yesterd = add_delta_days(days-1)
+        print(f"{yestery}, {yesterm}, {yesterd}")
+        transferred_feast = anglican_liturgical_colour(f_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
-        if ($transferred) {
-            $transferred->{name} .= ' (transferred)';
-            push @possibles, $transferred;
-        }
-    }
+        if transferred_feast:
+            transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
+            possibles.append(transferred_feast)
 
     # Maybe a Sunday.
-    if Day_of_Week(y, m, d) == 7:
-        possibles.append({ 'prec': 5, name: f"{season} {weekno}" })
+    if day_of_week(y, m, d) == 7:
+        possibles.append({ 'prec': 5, 'name': f"{season} {weekno}" })
 
     # So, which event takes priority?
 
-    possibles = sorted(possibles.items(), key = lambda tup: (tup[1]['prec']))
+    possibles = sorted(possibles, key=lambda x: x['prec'], reverse=True)
 
-    if opts['transferred']:
+    if transferred:
         # If two feasts coincided today, we were asked to find
         # the one which got transferred.
         # But Sundays don't get transferred!
@@ -394,13 +388,16 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
         except IndexError:
             return None
 
-    # Get first item
-    result = list(possibles.keys())[0]
-
-    if result is None:
+    # Get highest priority feast
+    try:
+        result = possibles.pop(0)
+    except IndexError:
         result = { 'name': '', 'prec': 1 }
+
+    # Append season info regardless
     result['season'] = season
     result['weekno'] = weekno
+    result['date'] = f"{y}-{m}-{d}"
 
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
