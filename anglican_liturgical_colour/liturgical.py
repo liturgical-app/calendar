@@ -280,7 +280,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     """
     Return the liturgical colour for a given day
     """
-    
+
     if f_date is None:
         f_date = todays_date()
 
@@ -323,7 +323,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
         weekno = (easter_point+50) // 7
-        # FIXME: The ECUSA calendar seems to indicate that Easter Eve ends
+        # The ECUSA calendar seems to indicate that Easter Eve ends
         # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
         # in both? Maybe the daytime is in Lent and the night is in Easter?
     elif easter_point >= 0 and easter_point <= 49:
