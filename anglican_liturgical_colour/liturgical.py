@@ -284,7 +284,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     if f_date is None:
         f_date = todays_date()
 
-    f_date = datetime.strptime(f_date, "%Y-%M-%d")
+    f_date = datetime.strptime(f_date, "%Y-%m-%d")
     y = f_date.year
     m = f_date.month
     d = f_date.day
