@@ -402,6 +402,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
         result['colour'] = 'rose'
+        result['colourcode'] = '##ff57a0'
 
     if result.get('colour') is None:
         if result['prec'] > 2 and result['prec'] != 5:
@@ -409,17 +410,22 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
             # But martyrs are red
             if result.get('martyr'):
                 result['colour'] = 'red'
+                result['colourcode'] = '#a11c08'
             else:
                 result['colour'] = 'white'
+                result['colourcode'] = '#ffffff'
         else:
             # Not a feast day.
             if season == 'Lent':
                 result['colour'] = 'purple'
+                result['colourcode'] = '#ad099a'
             elif season == 'Advent':
                 result['colour'] = 'purple'
+                result['colourcode'] = '#ad099a'
             else:
                 # The great fallback:
                 result['colour'] = 'green'
+                result['colourcode'] = '#03bf00'
 
     # Two special cases for Christmas-based festivals which
     # depend on the day of the week.
@@ -427,9 +433,11 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
         if christmas_point == advent_sunday:
             result['name'] = 'Advent Sunday'
             result['colour'] = 'white'
+            result['colourcode'] = '#ffffff'
         elif christmas_point == advent_sunday-7:
             result['name'] = 'Christ the King'
             result['colour'] = 'white'
+            result['colourcode'] = '#ffffff'
 
     return result
 
