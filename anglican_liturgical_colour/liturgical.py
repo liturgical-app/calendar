@@ -345,6 +345,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     else:
         season = 'Pentecost'
         weekno = 1 + (easter_point - 49) // 7
+    weekno = int(weekno)
 
     # Now, look for feasts.
     feast_from_easter    = feasts.get(easter_point)
