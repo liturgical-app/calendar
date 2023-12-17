@@ -8,7 +8,6 @@ packages = [{include = "anglican_liturgical_colour"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-juliandate = "^1.0.3"
 python-dateutil = "^2.8.2"
 
 [tool.poetry.group.dev.dependencies]

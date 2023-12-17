@@ -2,9 +2,8 @@
 Helper functions for date manipulation
 """
 
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from dateutil.easter import easter
-from juliandate import to_gregorian, from_gregorian
 
 def get_easter(year):
     """
@@ -24,9 +23,13 @@ def get_advent_sunday(year):
 
 def date_to_days(year, month, day):
     """
-    Convert a date from year,month,day to Julian days
+    Convert a date from year,month,day to days since 1st January, 1 AD
     """
-    return from_gregorian(year, month, day)
+    # Define a start date as passed in
+    f_date = date(year, month, day)
+    epoch = date(1, 1, 1)
+    delta = f_date - epoch
+    return delta.days
 
 def day_of_week(year, month, day):
     """
@@ -41,10 +44,11 @@ def day_of_week(year, month, day):
 
 def add_delta_days(days):
     """
-    Convert Julian date back to year,month, day
+    Convert days since 1st January, 1 AD back to year,month, day
     """
-    year, mon, day, hour, min, sec, micro = to_gregorian(days)
-    return year, mon, day
+    epoch = date(1, 1, 1)
+    end_date = epoch + timedelta(days=days)
+    return end_date.year, end_date.month, end_date.day
 
 
 def todays_date():
