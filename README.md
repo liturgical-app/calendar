@@ -1,31 +1,16 @@
-# anglican-liturgical-colour
+# Liturgical Colour
 
-## NAME
+This Python module will return the name, season, week number and liturgical
+colour for any day in the Gregorian calendar, according to the Anglican
+tradition of the Church of England.
 
-DateTime::Calendar::Liturgical::Christian - calendar of the church year
+This module's algorithm is a direct port to Python of
+[`DateTime::Calendar::Liturgical::Christian`](https://github.com/gitpan/DateTime-Calendar-Liturgical-Christian),
+which was originally written in Perl and loaded with the calendar of the Episcopal
+Church of the USA. It has now been fed with data from the Church of England's
+[Calendar of saints](https://en.wikipedia.org/wiki/Calendar_of_saints_(Church_of_England)).
 
-## SYNOPSIS
-
- $dtclc = DateTime::Calendar::Liturgical::Christian->new(
-    day=>4,
-    month=>6,
-    year=>2006);
-
- print $dtclc->name();    # 'Pentecost'
- print $dtclc->colour();  # 'red'
-
-## DESCRIPTION
-
-This module will return the name, season, week number and liturgical colour
-for any day in the Gregorian calendar. It will eventually support the
-liturgical calendars of several churches (hopefully at least Anglican,
-Lutheran, Orthodox and Roman Catholic). At present it only knows the calendar
-for the Episcopal Church of the USA.
-
-If you find bugs, or if you have information on the calendar of another
-liturgical church, please do let me know (thomas at thurman dot org dot uk).
-
-## OVERVIEW
+## Background
 
 Some churches use a special church calendar. Days and seasons within the year
 may be either "fasts" (solemn times) or "feasts" (joyful times). The year is
@@ -56,90 +41,47 @@ other materials. The major feasts are coloured white or gold. Fasts are
 purple. Feasts for martyrs (people who died for their faith) are red.
 Other days are green.
 
-## CONSTRUCTOR
+## Installation
 
-=over 4
+```console
+pip install anglican-liturgical-colour
+```
 
-### new ([ OPTIONS ])
+## Usage, as a command
 
-This constructs a DateTime::Calendar::Liturgical::Christian object. It takes
-a series of named options. Possible options are:
+Once installed, this can be run at the command line. Currently it prints
+an object with various attributes. This portion of the module needs
+improvement, although it is probably more useful as a library.
 
-**year** (required). The year AD in the Gregorian calendar.
+Specify the date in YYYY-MM-DD format, or leave blank to return info
+for today.
 
-**month** (required). The month number in the Gregorian calendar. 1 is January.
+```console
+# Get info for today
+$ liturgical_colour
+{'name': '', 'prec': 1, 'season': 'Advent', 'weekno': 4, 'date': '2023-12-18', 'colour': 'purple', 'colourcode': '#ad099a'}
 
-**day** (required). The day of the month.
+# Get info for an arbitrary date
+$ liturgical_colour 2023-04-09
+{'name': 'Easter', 'prec': 9, 'season': 'Easter', 'weekno': 0, 'date': '2023-4-9', 'colour': 'white', 'colourcode': '#ffffff'}
+```
 
-**tradition** (recommended). The tradition to use. Currently only `ECUSA` is known.
+## Usage, as a library
 
-**advent_blue**. It is currently popular in ECUSA to colour Advent blue,
-instead of purple, which will happen if this option is set to 1.
+```py
+# Get info for today
+dayinfo = anglican_liturgical_colour()
 
-**bvm_blue**. Some people mark feasts of the Blessed Virgin Mary, the mother of
-Jesus, with blue instead of white. This will happen if this option is set to 1.
-To tell the difference between this blue and `advent_blue`'s blue, see the
-`bvm` method, below.
+# Get info for an arbitrary date
+dayinfo = anglican_liturgical_colour('YYYY-MM-12')
 
-**rose**. Some people colour the middle Sundays of Lent and Advent pink, or
-"rose", instead of purple. This will happen if this option is set to 1.
+# Access the attributes individually
+print(dayinfo['colour'])
+```
 
-### from_object ( OBJECT )
+## Issues
 
-Constructs a DateTime::Calendar::Liturgical::Christian object from an object
-of any other DateTime class.
+If you find bugs (either in the code or in the calendar), please
+[create an issue on GitHub](https://github.com/djjudas21/anglican-liturgical-colour/issues).
 
-=back
-
-## METHODS
-
-=over 4
-
-### name
-
-Returns the name of the feast, if any.
-
-### season
-
-Returns the season.
-
-### colour
-
-Returns the colour of the day. Can be `red`, `green`, `white`, or `purple`,
-or `blue` or `rose` if the relevant options are set.
-
-### color
-
-Alternative spelling of `colour`.
-
-### bvm
-
-Returns true if the current day is a feast of the Blessed Virgin Mary. This
-can be used to distinguish Advent blue from Marian blue.
-
-### day
-
-Returns the day number which was used to construct the object.
-
-### month
-
-Returns the month number which was used to construct the object.
-
-### year
-
-Returns the year number which was used to construct the object.
-
-=back
-
-## SEE ALSO
-
-`DateTime`.
-
-## COPYRIGHT
-
-Copyright (c) 2006 Thomas Thurman.
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-If you use this software, please consider sending me an email at
-thomas at thurman dot org dot uk, so that I can see where it's being used.
+Pull requests are always welcome, either to address bugs or add new features.
