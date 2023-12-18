@@ -382,8 +382,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
         try:
             if possibles[0] and possibles[0]['prec'] == 5:
                 return None
-            else:
-                return possibles[1]
+            return possibles[1]
         except IndexError:
             return None
 
