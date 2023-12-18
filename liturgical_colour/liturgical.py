@@ -1,11 +1,8 @@
-# DateTime::Calendar::Liturgical::Christian         -*- cperl -*-
-#
-# This program is free software; you may distribute it under the same
-# conditions as Perl itself.
-#
-# Copyright (c) 2006 Thomas Thurman <thomas@thurman.org.uk>
-#
-##########################################################################
+"""
+This Python module will return the name, season, week number and liturgical
+colour for any day in the Gregorian calendar, according to the Anglican
+tradition of the Church of England.
+"""
 
 import sys
 from datetime import datetime
