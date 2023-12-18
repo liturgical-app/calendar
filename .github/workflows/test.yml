@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run pylint
-        run: "poetry run pylint --rcfile=.pylintrc liturgical-colour"
+        run: "poetry run pylint --rcfile=.pylintrc liturgical_colour"
 
   build:
     if: github.event_name == 'pull_request'
