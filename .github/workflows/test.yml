@@ -1,0 +1,51 @@
+---
+name: Test
+
+on:
+  push:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.9, "3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # install & configure poetry
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.2.1
+        with:
+          virtualenvs-create: true
+      # install dependencies
+      - name: Install dependencies
+        run: poetry install
+      - name: Run pylint
+        run: "poetry run pylint --rcfile=.pylintrc liturgical-colour"
+
+  build:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      # install & configure poetry
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.2.1
+        with:
+          virtualenvs-create: true
+      # install dependencies
+      - name: Install dependencies
+        run: poetry install
+      - name: Build Python package
+        run: poetry build
