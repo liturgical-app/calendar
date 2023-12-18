@@ -361,7 +361,6 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     # Call recursively to look for yesterday feast and push to possibles
     if transferred is False:
         yestery, yesterm, yesterd = add_delta_days(days-1)
-        print(f"{yestery}, {yesterm}, {yesterd}")
         transferred_feast = anglican_liturgical_colour(f_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
         if transferred_feast:
