@@ -285,16 +285,16 @@ def liturgical_colour(f_date: str, transferred: bool = False):
         f_date = todays_date()
 
     f_date = datetime.strptime(f_date, "%Y-%m-%d")
-    y = f_date.year
-    m = f_date.month
-    d = f_date.day
+    year = f_date.year
+    month = f_date.month
+    day = f_date.day
 
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
     # Calculate some values in Julian date
-    days = date_to_days(y, m, d)
-    easterm, easterd = get_easter(y)
-    easterday = date_to_days(y, easterm, easterd)
+    days = date_to_days(year, month, day)
+    easterm, easterd = get_easter(year)
+    easterday = date_to_days(year, easterm, easterd)
 
     possibles = []
 
@@ -309,16 +309,16 @@ def liturgical_colour(f_date: str, transferred: bool = False):
     # christmas_point. Let's make the cut-off date the end of February,
     # since we'll be dealing with Easter-based dates after that, and it
     # avoids the problems of considering leap years.
-    if m>2:
-        christmas_point = days - date_to_days(y, 12, 25)
+    if month>2:
+        christmas_point = days - date_to_days(year, 12, 25)
     else:
-        christmas_point = days - date_to_days(y-1, 12, 25)
+        christmas_point = days - date_to_days(year-1, 12, 25)
 
     # First, figure out the season.
     season = ''
     weekno = None
 
-    advent_sunday = get_advent_sunday(y)
+    advent_sunday = get_advent_sunday(year)
 
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
@@ -349,7 +349,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
 
     # Now, look for feasts.
     feast_from_easter    = feasts.get(easter_point)
-    feast_from_christmas = feasts.get(10000+100*m+d)
+    feast_from_christmas = feasts.get(10000+100*month+day)
 
     if feast_from_easter:
         possibles.append(feast_from_easter)
@@ -368,7 +368,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
             possibles.append(transferred_feast)
 
     # Maybe a Sunday.
-    if day_of_week(y, m, d) == 7:
+    if day_of_week(year, month, day) == 7:
         possibles.append({ 'prec': 5, 'name': f"{season} {weekno}" })
 
     # So, which event takes priority?
@@ -396,7 +396,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
     # Append season info regardless
     result['season'] = season
     result['weekno'] = weekno
-    result['date'] = f"{y}-{m}-{d}"
+    result['date'] = f"{year}-{month}-{day}"
 
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
