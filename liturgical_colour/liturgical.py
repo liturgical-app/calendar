@@ -276,7 +276,7 @@ feasts = {
 
 ##########################################################################
 
-def anglican_liturgical_colour(f_date: str, transferred: bool = False):
+def liturgical_colour(f_date: str, transferred: bool = False):
     """
     Return the liturgical colour for a given day
     """
@@ -361,7 +361,7 @@ def anglican_liturgical_colour(f_date: str, transferred: bool = False):
     # Call recursively to look for yesterday feast and push to possibles
     if transferred is False:
         yestery, yesterm, yesterd = add_delta_days(days-1)
-        transferred_feast = anglican_liturgical_colour(f_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
+        transferred_feast = liturgical_colour(f_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
         if transferred_feast:
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
@@ -451,7 +451,7 @@ def main():
     else:
         mydate = None
 
-    labels = anglican_liturgical_colour(mydate)
+    labels = liturgical_colour(mydate)
     print(labels)
 
 if __name__ == '__main__':

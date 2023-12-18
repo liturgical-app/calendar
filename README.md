@@ -44,7 +44,7 @@ Other days are green.
 ## Installation
 
 ```console
-pip install anglican-liturgical-colour
+pip install liturgical-colour
 ```
 
 ## Usage, as a command
@@ -70,10 +70,10 @@ $ liturgical_colour 2023-04-09
 
 ```py
 # Get info for today
-dayinfo = anglican_liturgical_colour()
+dayinfo = liturgical_colour()
 
 # Get info for an arbitrary date
-dayinfo = anglican_liturgical_colour('YYYY-MM-12')
+dayinfo = liturgical_colour('YYYY-MM-12')
 
 # Access the attributes individually
 print(dayinfo['colour'])
