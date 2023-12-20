@@ -5,8 +5,8 @@ tradition of the Church of England.
 """
 
 import sys
-from datetime import datetime
-from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, todays_date
+from datetime import datetime, date
+from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days
 
 ##########################################################################
 
@@ -273,15 +273,27 @@ feasts = {
 
 ##########################################################################
 
-def liturgical_colour(f_date: str, transferred: bool = False):
+def liturgical_colour(s_date: str, transferred: bool = False):
     """
     Return the liturgical colour for a given day
     """
 
-    if f_date is None:
-        f_date = todays_date()
-
-    f_date = datetime.strptime(f_date, "%Y-%m-%d")
+    # s_date could in a variety of formats
+    # We standardise to f_date as a Date
+    if isinstance(s_date, datetime):
+        # If datetime, strip it to the date
+        f_date = s_date.date()
+    elif isinstance(s_date, date):
+        # If date, accept it
+        f_date = s_date
+    elif isinstance(s_date, str):
+        # If string, try to parse a YYYY-MM-DD
+        f_date = datetime.strptime(s_date, "%Y-%m-%d").date()
+    else:
+        # Otherwise use today's date
+        f_date = date.today()
+    
+    # Extract the components from the date
     year = f_date.year
     month = f_date.month
     day = f_date.day
@@ -358,7 +370,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
     # Call recursively to look for yesterday feast and push to possibles
     if transferred is False:
         yestery, yesterm, yesterd = add_delta_days(days-1)
-        transferred_feast = liturgical_colour(f_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
+        transferred_feast = liturgical_colour(s_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
         if transferred_feast:
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
@@ -392,7 +404,7 @@ def liturgical_colour(f_date: str, transferred: bool = False):
     # Append season info regardless
     result['season'] = season
     result['weekno'] = weekno
-    result['date'] = f"{year}-{month}-{day}"
+    result['date'] = f_date
 
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
@@ -447,8 +459,9 @@ def main():
     else:
         mydate = None
 
-    labels = liturgical_colour(mydate)
-    print(labels)
+    info = liturgical_colour(mydate)
+    for key, value in info.items():
+        print(key, ':', value)
 
 if __name__ == '__main__':
     main()

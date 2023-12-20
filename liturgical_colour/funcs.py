@@ -2,7 +2,7 @@
 Helper functions for date manipulation
 """
 
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 from dateutil.easter import easter
 
 def get_easter(year):
@@ -49,12 +49,3 @@ def add_delta_days(days):
     epoch = date(1, 1, 1)
     end_date = epoch + timedelta(days=days)
     return end_date.year, end_date.month, end_date.day
-
-
-def todays_date():
-    """
-    Return today's date in YYYY-MM-DD format
-    """
-    now = datetime.now() # current date and time
-    today = now.strftime("%Y-%m-%d")
-    return today
