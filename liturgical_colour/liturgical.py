@@ -292,7 +292,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     else:
         # Otherwise use today's date
         f_date = date.today()
-    
+
     # Extract the components from the date
     year = f_date.year
     month = f_date.month
