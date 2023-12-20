@@ -73,7 +73,8 @@ $ liturgical_colour 2023-04-09
 dayinfo = liturgical_colour()
 
 # Get info for an arbitrary date
-dayinfo = liturgical_colour('YYYY-MM-12')
+# Date can be expressed as a string in YYYY-MM-DD format, a Datetime object, or a Date object
+dayinfo = liturgical_colour('YYYY-MM-DD')
 
 # Access the attributes individually
 print(dayinfo['colour'])
@@ -82,6 +83,11 @@ print(dayinfo['colour'])
 ## Issues
 
 If you find bugs (either in the code or in the calendar), please
-[create an issue on GitHub](https://github.com/djjudas21/anglican-liturgical-colour/issues).
+[create an issue on GitHub](https://github.com/djjudas21/liturgical-colour/issues).
 
 Pull requests are always welcome, either to address bugs or add new features.
+
+## Example
+
+There is a sample app which uses this library called
+[Liturgical Colour App](https://github.com/djjudas21/liturgical-colour-app).
