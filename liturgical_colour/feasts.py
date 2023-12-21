@@ -18,23 +18,19 @@ def lookup_feast(datecode):
         # Lesser Festivals = prec 4
         # Commemorations   = prec 3
 
+        # These Festivals need implementing
+        # 7 Dedication Festival, the first Sunday in October or the Last Sunday after Trinity, if date unknown
+
         # Dates relative to Easter are encoded as the number of days after Easter.
-
-        # Principal Feasts (precedence is 9)
-        0 : { 'name': 'Easter', 'url': '', 'prec':9, 'type': 'Principal Feast' },
-        39: { 'name': 'Ascension', 'url': '', 'prec':9, 'type': 'Principal Feast' },
-        49: { 'name': 'Pentecost', 'colour': 'red', 'url': '', 'prec':9, 'type': 'Principal Feast' },
-        56: { 'name': 'Trinity', 'url': '', 'prec':9, 'type': 'Principal Feast' },
-
-        # And others:
-        -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'url': '', 'prec':7, 'type': 'Festival' },
-        # is the colour of Shrove Tuesday right?
-        -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'url': '', 'prec':7, 'type': 'Festival' },
-        # Actually, Easter Eve doesn't have a colour
-        -1: { 'name': 'Easter Eve', 'colour':'purple', 'url': '', 'prec':7, 'type': 'Festival' },
-        -2: { 'name': 'Good Friday', 'colour':'purple', 'url': '', 'prec':7, 'type': 'Festival' },
-
-        50: { 'name': 'Book of Common Prayer', 'url': '', 'prec':3, 'type': 'Commemoration' },
+        -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'url': 'https://en.wikipedia.org/wiki/Shrove_Tuesday', 'prec':7, 'type': 'Festival' },
+        -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Ash_Wednesday', 'prec':9, 'type': 'Principal Feast' },
+        -3: { 'name': 'Maundy Thursday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Feast'},
+        -2: { 'name': 'Good Friday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Feast' },
+        0 : { 'name': 'Easter', 'url': 'https://en.wikipedia.org/wiki/Easter', 'prec':9, 'type': 'Principal Feast' },
+        39: { 'name': 'Ascension', 'url': 'https://en.wikipedia.org/wiki/Ascension_Day', 'prec':9, 'type': 'Principal Feast' },
+        49: { 'name': 'Pentecost', 'colour': 'red', 'url': 'https://en.wikipedia.org/wiki/Pentecost', 'prec':9, 'type': 'Principal Feast' },
+        56: { 'name': 'Trinity', 'url': 'https://en.wikipedia.org/wiki/Trinity_Sunday', 'prec':9, 'type': 'Principal Feast' },
+        60: { 'name': 'Corpus Christi', 'url':'https://en.wikipedia.org/wiki/Corpus_Christi_(feast)', 'prec':7, 'type': 'Festival' },
 
         # Dates relative to Christmas are encoded as 10000 + 100*m + d for simplicity.
         10101: { 'name': 'The Naming and Circumcision of Jesus', 'url': 'https://en.wikipedia.org/wiki/Circumcision_of_Christ', 'prec':7, 'type': 'Festival' },
@@ -43,7 +39,7 @@ def lookup_feast(datecode):
         10110: { 'name': 'William Laud', 'url': 'https://en.wikipedia.org/wiki/William_Laud', 'prec':3, 'type': 'Commemoration'},
         10111: { 'name': 'Mary Slessor', 'url': 'https://en.wikipedia.org/wiki/Mary_Slessor', 'prec':3, 'type': 'Commemoration'},
         10112: { 'name': 'Aelred of Hexham', 'url': 'https://en.wikipedia.org/wiki/Ailred_of_Rievaulx', 'prec':4, 'type': 'Lesser Festival'},
-        10113: { 'name': 'Hilary', 'url': 'https://en.wikipedia.org/wiki/Hilary_of_Poitiers', 'prec':4, 'type': 'Lesser Festival'},
+        10113: { 'name': 'The Baptism of Christ', 'url': 'https://en.wikipedia.org/wiki/Baptism_of_the_Lord', 'prec':7, 'type': 'Festival'},
         10117: { 'name': 'Antony', 'url': 'https://en.wikipedia.org/wiki/Anthony_the_Great', 'prec':4, 'type': 'Lesser Festival'},
         10118: { 'name': 'Amy Carmichael', 'url': 'https://en.wikipedia.org/wiki/Amy_Carmichael', 'prec':3, 'type': 'Commemoration'},
         10119: { 'name': 'Wulfstan', 'url': 'https://en.wikipedia.org/wiki/Wulfstan,_Bishop_of_Worcester', 'prec':4, 'type': 'Lesser Festival'},
@@ -247,7 +243,7 @@ def lookup_feast(datecode):
         11214: { 'name': 'John of the Cross', 'url': 'https://en.wikipedia.org/wiki/John_of_the_Cross', 'prec':4, 'type': 'Lesser Festival'},
         11217: { 'name': 'Eglantine Jebb', 'url': 'https://en.wikipedia.org/wiki/Eglantyne_Jebb', 'prec':3, 'type': 'Commemoration'},
         11224: { 'name': 'Christmas Eve', 'url': 'https://en.wikipedia.org/wiki/Christmas_Eve', 'prec':4, 'type': 'Lesser Festival'},
-        11225: { 'name': 'Christmas Day', 'url': 'https://en.wikipedia.org/wiki/Christmas_Day', 'prec':9, 'type': 'Principal Feast'},
+        11225: { 'name': 'Christmas', 'url': 'https://en.wikipedia.org/wiki/Christmas_Day', 'prec':9, 'type': 'Principal Feast'},
         11226: { 'name': 'Stephen', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Saint_Stephen', 'prec':7, 'type': 'Festival'},
         11227: { 'name': 'John the Apostle', 'url': 'https://en.wikipedia.org/wiki/John_the_Apostle', 'prec':7, 'type': 'Festival'},
         11228: { 'name': 'Holy Innocents', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Massacre_of_the_Innocents', 'prec':7, 'type': 'Festival'},
