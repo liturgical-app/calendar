@@ -96,7 +96,7 @@ def lookup_feast(datecode):
 
         10501: { 'name': 'Philip and James, Apostles', 'url': 'https://en.wikipedia.org/wiki/Philip_the_Apostle', 'prec':7, 'type': 'Festival'},
         10502: { 'name': 'Athanasius', 'url': 'https://en.wikipedia.org/wiki/Athanasius_of_Alexandria', 'prec':4, 'type': 'Lesser Festival'},
-        10504: { 'name': 'English Saints and Martyrs of the Reformation Era', 'url': '', 'prec':4, 'type': 'Lesser Festival'},
+        10504: { 'name': 'English Saints and Martyrs of the Reformation Era', 'prec':4, 'type': 'Lesser Festival'},
         10508: { 'name': 'Julian of Norwich', 'url': 'https://en.wikipedia.org/wiki/Julian_of_Norwich', 'prec':4, 'type': 'Lesser Festival'},
         10512: { 'name': 'Gregory Dix', 'url': 'https://en.wikipedia.org/wiki/Gregory_Dix', 'prec':3, 'type': 'Commemoration'},
         10514: { 'name': 'Matthias the Apostle', 'url': 'https://en.wikipedia.org/wiki/Saint_Matthias', 'prec':7, 'type': 'Festival'},
@@ -109,7 +109,7 @@ def lookup_feast(datecode):
         10526: { 'name': 'Augustine of Canterbury', 'url': 'https://en.wikipedia.org/wiki/Augustine_of_Canterbury', 'prec':4, 'type': 'Lesser Festival'},
         10528: { 'name': 'Lanfranc', 'url': 'https://en.wikipedia.org/wiki/Lanfranc', 'prec':3, 'type': 'Commemoration'},
         10530: { 'name': 'Josephine Butler', 'url': 'https://en.wikipedia.org/wiki/Josephine_Butler', 'prec':4, 'type': 'Lesser Festival'},
-        10531: { 'name': 'The Visit of the Blessed Virgin Mary to Elizabeth', 'url': '', 'prec':7, 'type': 'Festival'},
+        10531: { 'name': 'The Visit of the Blessed Virgin Mary to Elizabeth', 'prec':7, 'type': 'Festival'},
 
         10601: { 'name': 'Justin', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Justin_Martyr', 'prec':4, 'type': 'Lesser Festival'},
         10603: { 'name': 'Martyrs of Uganda', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Martyrs_of_Uganda', 'prec':3, 'type': 'Commemoration'},
@@ -217,7 +217,7 @@ def lookup_feast(datecode):
         11103: { 'name': 'Richard Hooker', 'url': 'https://en.wikipedia.org/wiki/Richard_Hooker', 'prec':4, 'type': 'Lesser Festival'},
         11106: { 'name': 'Leonard', 'url': 'https://en.wikipedia.org/wiki/Leonard_of_Noblac', 'prec':3, 'type': 'Commemoration'},
         11107: { 'name': 'Willibrord', 'url': 'https://en.wikipedia.org/wiki/Willibrord', 'prec':4, 'type': 'Lesser Festival'},
-        11108: { 'name': 'The Saints and Martyrs of England', 'url': '', 'prec':4, 'type': 'Lesser Festival'},
+        11108: { 'name': 'The Saints and Martyrs of England', 'prec':4, 'type': 'Lesser Festival'},
         11109: { 'name': 'Margery Kempe', 'url': 'https://en.wikipedia.org/wiki/Margery_Kempe', 'prec':3, 'type': 'Commemoration'},
         11110: { 'name': 'Leo the Great', 'url': 'https://en.wikipedia.org/wiki/Pope_Leo_I', 'prec':4, 'type': 'Lesser Festival'},
         11111: { 'name': 'Martin of Tours', 'url': 'https://en.wikipedia.org/wiki/Martin_of_Tours', 'prec':4, 'type': 'Lesser Festival'},
