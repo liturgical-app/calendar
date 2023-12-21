@@ -258,7 +258,6 @@ def lookup_feast(datecode):
         11213: { 'name': 'Lucy', 'prec':4},
         11214: { 'name': 'John of the Cross', 'prec':4},
         11217: { 'name': 'Eglantine Jebb', 'prec':3},
-        11221: { 'name': 'Thomas', 'prec':4},
         11224: { 'name': 'Christmas Eve', 'prec':4},
         11225: { 'name': 'Christmas', 'prec':9},
         11226: { 'name': 'Stephen', 'martyr':1, 'prec':7},
