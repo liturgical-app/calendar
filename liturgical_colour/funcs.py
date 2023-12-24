@@ -19,7 +19,7 @@ def get_advent_sunday(year):
     """
     Return date of Advent Sunday, in days relative to Christmas day
     """
-    return -(day_of_week(year,12,25) + 4*7)
+    return -(day_of_week(year,12,25) + 3*7)
 
 def date_to_days(year, month, day):
     """
