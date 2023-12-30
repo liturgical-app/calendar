@@ -57,10 +57,10 @@ def colour_code(colour):
     """
     codes = {
         'white': '#ffffff',
-        'red': '#a11c08',
-        'rose': '#ff57a0',
-        'purple': '#ad099a',
-        'green': '#03bf00'
+        'red': '#ce0002',
+        'rose': '#eb597a',
+        'purple': '#664fa6',
+        'green': '#279942'
     }
 
     return codes.get(colour)
