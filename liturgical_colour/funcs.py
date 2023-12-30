@@ -49,3 +49,18 @@ def add_delta_days(days):
     epoch = date(1, 1, 1)
     end_date = epoch + timedelta(days=days)
     return end_date.year, end_date.month, end_date.day
+
+
+def colour_code(colour):
+    """
+    Accept a colour name and return a colour code
+    """
+    codes = {
+        'white': '#ffffff',
+        'red': '#a11c08',
+        'rose': '#ff57a0',
+        'purple': '#ad099a',
+        'green': '#03bf00'
+    }
+
+    return codes.get(colour)
