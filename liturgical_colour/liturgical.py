@@ -150,7 +150,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         result['colour'] = 'rose'
 
     if result.get('colour') is None:
-        if result['prec'] > 2 and result['prec'] != 5:
+        if result['prec'] > 3 and result['prec'] != 5:
             # feasts are generally white, unless marked differently.
             # But martyrs are red
             if result.get('martyr'):
