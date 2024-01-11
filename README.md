@@ -59,11 +59,25 @@ for today.
 ```console
 # Get info for today
 $ liturgical_colour
-{'name': '', 'prec': 1, 'season': 'Advent', 'weekno': 4, 'date': '2023-12-18', 'colour': 'purple', 'colourcode': '#ad099a'}
+name : 
+prec : 1
+season : Advent
+weekno : 4
+date : 2023-12-21
+colour : purple
+colourcode : #ad099a
 
 # Get info for an arbitrary date
-$ liturgical_colour 2023-04-09
-{'name': 'Easter', 'prec': 9, 'season': 'Easter', 'weekno': 0, 'date': '2023-4-9', 'colour': 'white', 'colourcode': '#ffffff'}
+$ liturgical_colour 2023-01-25
+name : The Conversion of Paul
+url : https://en.wikipedia.org/wiki/Conversion_of_Paul
+prec : 7
+type : Festival
+season : Epiphany
+weekno : 3
+date : 2023-01-25
+colour : white
+colourcode : #ffffff
 ```
 
 ## Usage, as a library
