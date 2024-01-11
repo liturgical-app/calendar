@@ -10,22 +10,23 @@ def lookup_feast(datecode):
     feasts = {
 
         # Anglican Holy Days are variously categorised as Principal Feasts,
-        # Festivals, Lesser Festivals, or Commemorations
+        # Principal Holy Days, Festivals, Lesser Festivals, or Commemorations
         # The observance of Lesser Festivals or Commemorations is optional.
-        # Principal Feasts = prec 9
-        # Festivals        = prec 7
-        # Sundays          = prec 5
-        # Lesser Festivals = prec 4
-        # Commemorations   = prec 3
+        # Principal Feasts    = prec 9
+        # Principal Holy Days = prec 9
+        # Festivals           = prec 7
+        # Sundays             = prec 5
+        # Lesser Festivals    = prec 4
+        # Commemorations      = prec 3
 
         # These Festivals need implementing
         # 7 Dedication Festival, the first Sunday in October or the Last Sunday after Trinity, if date unknown
 
         # Dates relative to Easter are encoded as the number of days after Easter.
         -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'url': 'https://en.wikipedia.org/wiki/Shrove_Tuesday', 'prec':7, 'type': 'Festival' },
-        -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Ash_Wednesday', 'prec':9, 'type': 'Principal Feast' },
-        -3: { 'name': 'Maundy Thursday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Feast'},
-        -2: { 'name': 'Good Friday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Feast' },
+        -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Ash_Wednesday', 'prec':9, 'type': 'Principal Holy Day' },
+        -3: { 'name': 'Maundy Thursday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Holy Day'},
+        -2: { 'name': 'Good Friday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Holy Day' },
         0 : { 'name': 'Easter', 'url': 'https://en.wikipedia.org/wiki/Easter', 'prec':9, 'type': 'Principal Feast' },
         39: { 'name': 'Ascension', 'url': 'https://en.wikipedia.org/wiki/Ascension_Day', 'prec':9, 'type': 'Principal Feast' },
         49: { 'name': 'Pentecost', 'colour': 'red', 'url': 'https://en.wikipedia.org/wiki/Pentecost', 'prec':9, 'type': 'Principal Feast' },
