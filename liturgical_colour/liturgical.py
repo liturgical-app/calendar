@@ -159,10 +159,17 @@ def liturgical_colour(s_date: str, transferred: bool = False):
                 result['colour'] = 'white'
         else:
             # Not a feast day.
-            if season == 'Lent':
+            # Set a default colour for the season
+            if season == 'Advent':
                 result['colour'] = 'purple'
-            elif season == 'Advent':
+            elif season == 'Christmas':
+                result['colour'] = 'white'
+            elif season == 'Epiphany':
+                result['colour'] = 'white'
+            elif season == 'Lent':
                 result['colour'] = 'purple'
+            elif season == 'Easter':
+                result['colour'] = 'white'
             else:
                 # The great fallback:
                 result['colour'] = 'green'
