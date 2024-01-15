@@ -70,6 +70,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
+        season_url = 'https://en.wikipedia.org/wiki/Lent'
         weekno = (easter_point+50) // 7
         # The ECUSA calendar seems to indicate that Easter Eve ends
         # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
@@ -79,19 +80,24 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         # Pentecost season actually begins on the day after Pentecost.
         # Its proper name is "The Season After Pentecost".
         season = 'Easter'
+        season_url = 'https://en.wikipedia.org/wiki/Eastertide'
         weekno = easter_point // 7
     elif christmas_point >= advent_sunday and christmas_point <= -1:
         season = 'Advent'
+        season_url = 'https://en.wikipedia.org/wiki/Advent'
         weekno = 1 + (christmas_point-advent_sunday) // 7
     elif christmas_point >= 0 and christmas_point <= 11:
         # The Twelve Days of Christmas.
         season = 'Christmas'
+        season_url = 'https://en.wikipedia.org/wiki/Christmastide'
         weekno = 1 + christmas_point // 7
     elif christmas_point >= 12 and easter_point <= -47:
         season = 'Epiphany'
+        season_url = 'https://en.wikipedia.org/wiki/Epiphany_season'
         weekno = 1 + (christmas_point-12) // 7
     else:
         season = 'Pentecost'
+        season_url = 'https://en.wikipedia.org/wiki/Pentecost_season'
         weekno = 1 + (easter_point - 49) // 7
     weekno = int(weekno)
 
@@ -142,6 +148,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
     # Append season info regardless
     result['season'] = season
+    result['season_url'] = season_url
     result['weekno'] = weekno
     result['date'] = f_date
 
