@@ -91,13 +91,19 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         season = 'Christmas'
         season_url = 'https://en.wikipedia.org/wiki/Christmastide'
         weekno = 1 + christmas_point // 7
-    elif christmas_point >= 12 and easter_point <= -47:
+    elif christmas_point >= 12 and christmas_point < 40:
         season = 'Epiphany'
         season_url = 'https://en.wikipedia.org/wiki/Epiphany_season'
         weekno = 1 + (christmas_point-12) // 7
+    elif christmas_point >= 40 and easter_point <= -47:
+        # Period of Ordinary Time after Epiphany
+        season = 'Ordinary Time'
+        season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
+        weekno = 1 + (christmas_point - 47) // 7
     else:
-        season = 'Pentecost'
-        season_url = 'https://en.wikipedia.org/wiki/Pentecost_season'
+        # Period of Ordinary Time after Pentecost
+        season = 'Ordinary Time'
+        season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
         weekno = 1 + (easter_point - 49) // 7
     weekno = int(weekno)
 
