@@ -60,7 +60,7 @@ def lookup_feast(datecode):
         10204: { 'name': 'Gilbert of Sempringham', 'url': 'https://en.wikipedia.org/wiki/Gilbert_of_Sempringham', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         10206: { 'name': 'Martyrs of Japan', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/26_Martyrs_of_Japan', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         10210: { 'name': 'Scholastica', 'url': 'https://en.wikipedia.org/wiki/Scholastica', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
-        10214: { 'name': 'Valentine', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Saint_Valentine', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
+        10214: { 'name': 'Valentine', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Saint_Valentine', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         10215: { 'name': 'Thomas Bray', 'url': 'https://en.wikipedia.org/wiki/Thomas_Bray', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         10217: { 'name': 'Janani Luwum', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Janani_Luwum', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
         10223: { 'name': 'Polycarp', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Polycarp', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
