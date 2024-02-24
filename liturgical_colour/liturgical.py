@@ -71,7 +71,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
         season_url = 'https://en.wikipedia.org/wiki/Lent'
-        weekno = 1 + (easter_point+50) // 7
+        weekno = (easter_point+50) // 7
         # The ECUSA calendar seems to indicate that Easter Eve ends
         # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
         # in both? Maybe the daytime is in Lent and the night is in Easter?
