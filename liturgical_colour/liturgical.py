@@ -72,7 +72,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     if easter_point > -47 and easter_point < 0:
         season = 'Lent'
         season_url = 'https://en.wikipedia.org/wiki/Lent'
-        weekno = (easter_point+50) // 7
+        weekno = (easter_point+50-dayofweek) // 7
         # The ECUSA calendar seems to indicate that Easter Eve ends
         # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
         # in both? Maybe the daytime is in Lent and the night is in Easter?
@@ -91,11 +91,11 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         # The Twelve Days of Christmas.
         season = 'Christmas'
         season_url = 'https://en.wikipedia.org/wiki/Christmastide'
-        weekno = 1 + christmas_point // 7
+        weekno = 1 + (christmas_point - dayofweek) // 7
     elif christmas_point >= 12 and christmas_point < 40:
         season = 'Epiphany'
         season_url = 'https://en.wikipedia.org/wiki/Epiphany_season'
-        weekno = 1 + (christmas_point-12) // 7
+        weekno = 1 + (christmas_point-12-dayofweek) // 7
     elif christmas_point >= 40 and easter_point <= -47:
         # Period of Ordinary Time after Epiphany
         season = 'Ordinary Time'
