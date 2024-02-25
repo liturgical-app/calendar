@@ -33,14 +33,21 @@ def date_to_days(year, month, day):
 
 def day_of_week(year, month, day):
     """
-    Return ISO day of week for any given date in year,month,day format
+    Return day of week for any given date in year,month,day format
+    between 0-6 where 0 is Sunday, i.e. the first day of the week
+    Compare with:
+      weekday() which is 0-6 and 0 is Monday
+      isoweekday() which is 1-7 and 1 is Monday
     """
 
     # Define a start date as passed in
     f_date = date(year, month, day)
 
-    # Return ISO week day, in range 1-7
-    return f_date.isoweekday()
+    # Get ISO week day, in range 1-7
+    weekday = f_date.isoweekday()
+
+    # Rewrite 7=Sunday as 0=Sunday
+    return 0 if weekday == 7 else weekday
 
 def add_delta_days(days):
     """
