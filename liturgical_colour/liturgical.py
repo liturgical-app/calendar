@@ -36,6 +36,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     year = f_date.year
     month = f_date.month
     day = f_date.day
+    dayofweek = day_of_week(year, month, day)
 
     #die "Need to specify year, month and day" unless $y and $m and $d;
 
@@ -128,7 +129,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
             possibles.append(transferred_feast)
 
     # Maybe a Sunday.
-    if day_of_week(year, month, day) == 7:
+    if dayofweek == 7:
         possibles.append({ 'prec': 5, 'type': 'Sunday', 'name': f"{season} {weekno}" })
 
     # So, which event takes priority?
