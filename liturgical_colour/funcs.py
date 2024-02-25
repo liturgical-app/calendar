@@ -44,10 +44,10 @@ def day_of_week(year, month, day):
     f_date = date(year, month, day)
 
     # Get ISO week day, in range 1-7
-    wd = f_date.isoweekday()
-    
+    weekday = f_date.isoweekday()
+
     # Rewrite 7=Sunday as 0=Sunday
-    return 0 if wd == 7 else wd
+    return 0 if weekday == 7 else weekday
 
 def add_delta_days(days):
     """
