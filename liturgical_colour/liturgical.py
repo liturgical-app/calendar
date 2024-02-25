@@ -185,6 +185,8 @@ def liturgical_colour(s_date: str, transferred: bool = False):
                 result['colour'] = 'white'
             elif season == 'Lent':
                 result['colour'] = 'purple'
+            elif season == 'Holy Week':
+                result['colour'] = 'red'
             elif season == 'Easter':
                 result['colour'] = 'white'
             else:
