@@ -129,7 +129,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
             possibles.append(transferred_feast)
 
     # Maybe a Sunday.
-    if dayofweek == 7:
+    if dayofweek == 0:
         possibles.append({ 'prec': 5, 'type': 'Sunday', 'name': f"{season} {weekno}" })
 
     # So, which event takes priority?
