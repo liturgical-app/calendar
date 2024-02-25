@@ -69,21 +69,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
     advent_sunday = get_advent_sunday(year)
 
-    if easter_point > -47 and easter_point < 0:
-        season = 'Lent'
-        season_url = 'https://en.wikipedia.org/wiki/Lent'
-        weekno = (easter_point+50-dayofweek) // 7
-        # The ECUSA calendar seems to indicate that Easter Eve ends
-        # Lent *and* begins the Easter season. I'm not sure how. Maybe it's
-        # in both? Maybe the daytime is in Lent and the night is in Easter?
-    elif easter_point >= 0 and easter_point <= 49:
-        # yes, this is correct: Pentecost itself is in Easter season;
-        # Pentecost season actually begins on the day after Pentecost.
-        # Its proper name is "The Season After Pentecost".
-        season = 'Easter'
-        season_url = 'https://en.wikipedia.org/wiki/Eastertide'
-        weekno = easter_point // 7
-    elif christmas_point >= advent_sunday and christmas_point <= -1:
+    if christmas_point >= advent_sunday and christmas_point <= -1:
         season = 'Advent'
         season_url = 'https://en.wikipedia.org/wiki/Advent'
         weekno = 1 + (christmas_point-advent_sunday) // 7
@@ -101,6 +87,21 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         season = 'Ordinary Time'
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
         weekno = 1 + (christmas_point - 47) // 7
+    elif easter_point > -47 and easter_point < -7:
+        season = 'Lent'
+        season_url = 'https://en.wikipedia.org/wiki/Lent'
+        weekno = (easter_point+50-dayofweek) // 7
+    elif easter_point >= -7 and easter_point < 0:
+        season = 'Holy Week'
+        season_url = 'https://en.wikipedia.org/wiki/Holy_Week'
+        weekno = 0
+    elif easter_point >= 0 and easter_point <= 49:
+        # yes, this is correct: Pentecost itself is in Easter season;
+        # Pentecost season actually begins on the day after Pentecost.
+        # Its proper name is "The Season After Pentecost".
+        season = 'Easter'
+        season_url = 'https://en.wikipedia.org/wiki/Eastertide'
+        weekno = easter_point // 7
     else:
         # Period of Ordinary Time after Pentecost
         season = 'Ordinary Time'

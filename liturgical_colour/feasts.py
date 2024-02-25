@@ -25,8 +25,9 @@ def lookup_feast(datecode):
         # Dates relative to Easter are encoded as the number of days after Easter.
         -47: { 'name': 'Shrove Tuesday', 'colour':'white', 'url': 'https://en.wikipedia.org/wiki/Shrove_Tuesday', 'prec':7, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)' },
         -46: { 'name': 'Ash Wednesday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Ash_Wednesday', 'prec':9, 'type': 'Principal Holy Day', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Holy_Day' },
-        -3: { 'name': 'Maundy Thursday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Holy Day', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Holy_Day'},
-        -2: { 'name': 'Good Friday', 'colour':'purple', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Holy Day', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Holy_Day' },
+        -7: { 'name': 'Palm Sunday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Palm_Sunday', 'prec':5, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)'},
+        -3: { 'name': 'Maundy Thursday', 'colour':'white', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Holy Day', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Holy_Day'},
+        -2: { 'name': 'Good Friday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Holy Day', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Holy_Day' },
         0 : { 'name': 'Easter', 'url': 'https://en.wikipedia.org/wiki/Easter', 'prec':9, 'type': 'Principal Feast', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Feast' },
         39: { 'name': 'Ascension', 'url': 'https://en.wikipedia.org/wiki/Ascension_Day', 'prec':9, 'type': 'Principal Feast', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Feast' },
         49: { 'name': 'Pentecost', 'colour': 'red', 'url': 'https://en.wikipedia.org/wiki/Pentecost', 'prec':9, 'type': 'Principal Feast', 'type_url': 'https://en.wikipedia.org/wiki/Principal_Feast' },
