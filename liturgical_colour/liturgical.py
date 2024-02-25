@@ -106,7 +106,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         season = 'Ordinary Time'
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
         weekno = 1 + (easter_point - 49) // 7
-    weekno = int(weekno)
+    weekno = int(weekno) if int(weekno) > 0 else None
 
     # Now, look for feasts.
     feast_from_easter    = lookup_feast(easter_point)
@@ -128,7 +128,9 @@ def liturgical_colour(s_date: str, transferred: bool = False):
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
             possibles.append(transferred_feast)
 
-    # Maybe a Sunday.
+    # Maybe a Sunday
+    # Shouldn't need to trap weekno=0 here, as the weekno increments on
+    # a Sunday so it can never be less than 1 on a Sunday
     if dayofweek == 0:
         possibles.append({ 'prec': 5, 'type': 'Sunday', 'name': f"{season} {weekno}" })
 
