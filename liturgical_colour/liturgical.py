@@ -127,7 +127,9 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
         if transferred_feast:
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
-            possibles.append(transferred_feast)
+            # Sundays can't be transferred
+            if transferred_feast['prec'] != 5:
+                possibles.append(transferred_feast)
 
     # Maybe a Sunday
     # Shouldn't need to trap weekno=0 here, as the weekno increments on
