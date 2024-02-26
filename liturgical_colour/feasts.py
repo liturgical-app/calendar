@@ -206,11 +206,11 @@ def lookup_feast(datecode):
         11015: { 'name': 'Teresa of Avila', 'url': 'https://en.wikipedia.org/wiki/Teresa_of_%C3%81vila', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
         11016: { 'name': 'Nicholas Ridley and Hugh Latimer', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Nicholas_Ridley_(martyr)', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         11017: { 'name': 'Ignatius', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Ignatius_of_Antioch', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
-        11018: { 'name': 'Luke the Evangelist', 'url': 'https://en.wikipedia.org/wiki/Luke_the_Evangelist', 'prec':7, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)'},
+        11018: { 'name': 'Luke the Evangelist', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Luke_the_Evangelist', 'prec':7, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)'},
         11019: { 'name': 'Henry Martyn', 'url': 'https://en.wikipedia.org/wiki/Henry_Martyn', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
         11025: { 'name': 'Crispin and Crispinian', 'url': 'https://en.wikipedia.org/wiki/Crispin', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
         11026: { 'name': 'Alfred the Great', 'url': 'https://en.wikipedia.org/wiki/Alfred_the_Great', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
-        11028: { 'name': 'Simon and Jude, Apostles', 'url': 'https://en.wikipedia.org/wiki/Simon_the_Zealot', 'prec':7, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)'},
+        11028: { 'name': 'Simon and Jude, Apostles', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Simon_the_Zealot', 'prec':7, 'type': 'Festival', 'type_url': 'https://en.wikipedia.org/wiki/Festival_(Church_of_England)'},
         11029: { 'name': 'James Hannington', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/James_Hannington', 'prec':4, 'type': 'Lesser Festival', 'type_url': 'https://en.wikipedia.org/wiki/Lesser_Festival'},
         11031: { 'name': 'Martin Luther', 'url': 'https://en.wikipedia.org/wiki/Martin_Luther', 'prec':3, 'type': 'Commemoration', 'type_url': 'https://en.wikipedia.org/wiki/Commemoration_(Anglicanism)'},
 

@@ -95,18 +95,20 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         season = 'Holy Week'
         season_url = 'https://en.wikipedia.org/wiki/Holy_Week'
         weekno = 0
-    elif easter_point >= 0 and easter_point <= 49:
-        # yes, this is correct: Pentecost itself is in Easter season;
-        # Pentecost season actually begins on the day after Pentecost.
-        # Its proper name is "The Season After Pentecost".
+    elif easter_point >= 0 and easter_point < 49:
         season = 'Easter'
         season_url = 'https://en.wikipedia.org/wiki/Eastertide'
-        weekno = easter_point // 7
+        weekno = 1+ easter_point // 7
+    elif easter_point >= 49 and easter_point < 56:
+        # Period of Ordinary Time after Pentecost
+        season = 'Pentecost'
+        season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
+        weekno = 0
     else:
         # Period of Ordinary Time after Pentecost
-        season = 'Ordinary Time'
+        season = 'Trinity'
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
-        weekno = 1 + (easter_point - 49) // 7
+        weekno = (easter_point - 56 - dayofweek) // 7
     weekno = int(weekno) if int(weekno) > 0 else None
 
     # Now, look for feasts.
@@ -127,7 +129,9 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
         if transferred_feast:
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
-            possibles.append(transferred_feast)
+            # Sundays can't be transferred
+            if transferred_feast['prec'] != 5:
+                possibles.append(transferred_feast)
 
     # Maybe a Sunday
     # Shouldn't need to trap weekno=0 here, as the weekno increments on
@@ -185,6 +189,8 @@ def liturgical_colour(s_date: str, transferred: bool = False):
                 result['colour'] = 'white'
             elif season == 'Lent':
                 result['colour'] = 'purple'
+            elif season == 'Holy Week':
+                result['colour'] = 'red'
             elif season == 'Easter':
                 result['colour'] = 'white'
             else:
