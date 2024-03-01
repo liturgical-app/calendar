@@ -171,8 +171,8 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
     # If no colour is already set...
     if result.get('colour') is None:
-        # If the priority is higher than a Commemoration, but not a Sunday...
-        if result['prec'] > 3 and result['prec'] != 5:
+        # If the priority is higher than a Lesser Festival, but not a Sunday...
+        if result['prec'] > 4 and result['prec'] != 5:
             # It's a feast day.
             # Feasts are generally white, unless marked differently.
             # But martyrs are red
