@@ -5,7 +5,7 @@ Helper functions for date manipulation
 from datetime import date, timedelta
 from dateutil.easter import easter
 
-def get_easter(year):
+def get_easter(year: int) -> tuple:
     """
     Returns the date easter occurs on for a given year as (month,day)
     """
@@ -15,13 +15,13 @@ def get_easter(year):
     return easter_month, easter_day
 
 
-def get_advent_sunday(year):
+def get_advent_sunday(year: int) -> int:
     """
     Return date of Advent Sunday, in days relative to Christmas day
     """
     return -(day_of_week(year,12,25) + 3*7)
 
-def date_to_days(year, month, day):
+def date_to_days(year: int, month: int, day: int) -> int:
     """
     Convert a date from year,month,day to days since 1st January, 1 AD
     """
@@ -31,7 +31,7 @@ def date_to_days(year, month, day):
     delta = f_date - epoch
     return delta.days
 
-def day_of_week(year, month, day):
+def day_of_week(year: int, month: int, day: int) -> int:
     """
     Return day of week for any given date in year,month,day format
     between 0-6 where 0 is Sunday, i.e. the first day of the week
@@ -49,7 +49,7 @@ def day_of_week(year, month, day):
     # Rewrite 7=Sunday as 0=Sunday
     return 0 if weekday == 7 else weekday
 
-def add_delta_days(days):
+def add_delta_days(days: int) -> tuple:
     """
     Convert days since 1st January, 1 AD back to year,month, day
     """
@@ -58,7 +58,7 @@ def add_delta_days(days):
     return end_date.year, end_date.month, end_date.day
 
 
-def colour_code(colour):
+def colour_code(colour: str) -> str:
     """
     Accept a colour name and return a colour code
     """
