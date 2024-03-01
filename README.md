@@ -8,7 +8,12 @@ This module's algorithm is a direct port to Python of
 [`DateTime::Calendar::Liturgical::Christian`](https://github.com/gitpan/DateTime-Calendar-Liturgical-Christian),
 which was originally written in Perl and loaded with the calendar of the Episcopal
 Church of the USA. It has now been fed with data from the Church of England's
-[Calendar of saints](https://en.wikipedia.org/wiki/Calendar_of_saints_(Church_of_England)).
+[Calendar of saints](https://en.wikipedia.org/wiki/Calendar_of_saints_(Church_of_England))
+and substantially modified to suit the Anglican calendar.
+
+The output of this module is compared against the
+[Church of England Lectionary](https://www.chpublishing.co.uk/features/lectionary),
+which is taken to be the canonical source.
 
 ## Background
 
