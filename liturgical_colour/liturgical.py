@@ -140,7 +140,6 @@ def liturgical_colour(s_date: str, transferred: bool = False):
         possibles.append({ 'prec': 5, 'type': 'Sunday', 'name': f"{season} {weekno}" })
 
     # So, which event takes priority?
-
     possibles = sorted(possibles, key=lambda x: x['prec'], reverse=True)
 
     if transferred:
@@ -170,9 +169,12 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     if result['name'] in [ 'Advent 2', 'Lent 3' ]:
         result['colour'] = 'rose'
 
+    # If no colour is already set...
     if result.get('colour') is None:
-        if result['prec'] > 3 and result['prec'] != 5:
-            # feasts are generally white, unless marked differently.
+        # If the priority is higher than a Lesser Festival, but not a Sunday...
+        if result['prec'] > 4 and result['prec'] != 5:
+            # It's a feast day.
+            # Feasts are generally white, unless marked differently.
             # But martyrs are red
             if result.get('martyr'):
                 result['colour'] = 'red'
