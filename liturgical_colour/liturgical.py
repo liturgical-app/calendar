@@ -69,6 +69,8 @@ def liturgical_colour(s_date: str, transferred: bool = False):
 
     advent_sunday = get_advent_sunday(year)
 
+    # Break up the liturgical year into seasons, starting at Advent
+    # Set weekno=0 to disable week numbers for that season
     if christmas_point >= advent_sunday and christmas_point <= -1:
         season = 'Advent'
         season_url = 'https://en.wikipedia.org/wiki/Advent'
@@ -159,10 +161,17 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     except IndexError:
         result = { 'name': '', 'prec': 1 }
 
+    # Render a Week name with or without number
+    if weekno and weekno > 0:
+        week = f"{season} {weekno}"
+    else:
+        week = season
+
     # Append season info regardless
     result['season'] = season
     result['season_url'] = season_url
     result['weekno'] = weekno
+    result['week'] = week
     result['date'] = f_date
 
     # Support for special Sundays which are rose
