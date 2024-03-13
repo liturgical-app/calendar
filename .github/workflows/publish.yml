@@ -9,6 +9,10 @@ jobs:
   publish:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
+    permissions:
+      # This permission is required for trusted publishing.
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
