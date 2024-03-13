@@ -24,5 +24,8 @@ jobs:
         run: echo ::set-output name=TAG::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Bump poetry version
         run: poetry version ${{ steps.get_tag.outputs.TAG }}
+      - name: Mint token
+        id: mint
+        uses: tschm/token-mint-action@v1.0.3
       - name: Publish to PyPI
-        run: poetry publish -n --build --username __token__ --password ${{ secrets.pypi_password }}
+        run: poetry publish -n --build --username __token__ --password '${{ steps.mint.outputs.api-token }}'
