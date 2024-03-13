@@ -175,7 +175,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     result['date'] = f_date
 
     # Support for special Sundays which are rose
-    if result['name'] in [ 'Advent 2', 'Lent 3' ]:
+    if result['name'] in [ 'Advent 3', 'Lent 4' ]:
         result['colour'] = 'rose'
 
     # If no colour is already set...
