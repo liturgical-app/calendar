@@ -216,7 +216,7 @@ def lookup_feast(datecode):
         11031: { 'name': 'Martin Luther', 'url': 'https://en.wikipedia.org/wiki/Martin_Luther', 'prec':3},
 
         11101: { 'name': 'All Saints', 'url': 'https://en.wikipedia.org/wiki/All_Saints%27_Day', 'prec':9, 'type': 'Principal Feast'},
-        11102: { 'name': 'All Souls', 'url': 'https://en.wikipedia.org/wiki/All_Souls%27_Day', 'prec':4},
+        11102: { 'name': 'All Souls', 'url': 'https://en.wikipedia.org/wiki/All_Souls%27_Day', 'colour':'purple', 'prec':4},
         11103: { 'name': 'Richard Hooker', 'url': 'https://en.wikipedia.org/wiki/Richard_Hooker', 'prec':4},
         11106: { 'name': 'Leonard', 'url': 'https://en.wikipedia.org/wiki/Leonard_of_Noblac', 'prec':3},
         11107: { 'name': 'Willibrord', 'url': 'https://en.wikipedia.org/wiki/Willibrord', 'prec':4},
