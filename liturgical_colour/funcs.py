@@ -136,7 +136,8 @@ def colour_code(colour: str) -> str:
         'red': '#ce0002',
         'rose': '#eb597a',
         'purple': '#664fa6',
-        'green': '#279942'
+        'green': '#279942',
+        'not given': '#000000'
     }
 
     return codes.get(colour)

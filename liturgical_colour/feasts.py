@@ -31,7 +31,7 @@ def lookup_feast(datecode):
         -4: { 'name': 'Holy Wednesday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Holy_Wednesday', 'prec':9, 'type': 'Principal Holy Day'},
         -3: { 'name': 'Maundy Thursday', 'colour':'white', 'url': 'https://en.wikipedia.org/wiki/Maundy_Thursday', 'prec':9, 'type': 'Principal Holy Day'},
         -2: { 'name': 'Good Friday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Holy Day' },
-        -1: { 'name': 'Holy Saturday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Holy_Saturday', 'prec':9, 'type': 'Principal Holy Day' },
+        -1: { 'name': 'Holy Saturday', 'colour':'not given', 'url': 'https://en.wikipedia.org/wiki/Holy_Saturday', 'prec':9, 'type': 'Principal Holy Day' },
         0 : { 'name': 'Easter', 'url': 'https://en.wikipedia.org/wiki/Easter', 'prec':9, 'type': 'Principal Feast' },
         39: { 'name': 'Ascension', 'url': 'https://en.wikipedia.org/wiki/Ascension_Day', 'prec':9, 'type': 'Principal Feast' },
         49: { 'name': 'Pentecost', 'colour': 'red', 'url': 'https://en.wikipedia.org/wiki/Pentecost', 'prec':9, 'type': 'Principal Feast' },
