@@ -102,7 +102,7 @@ print(dayinfo['colour'])
 ## Issues
 
 If you find bugs (either in the code or in the calendar), please
-[create an issue on GitHub](https://github.com/djjudas21/liturgical-colour/issues).
+[create an issue on GitHub](https://github.com/liturgical/calendar/issues).
 
 Pull requests are always welcome, either to address bugs or add new features.
 
