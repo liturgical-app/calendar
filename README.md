@@ -49,7 +49,7 @@ Other days are green.
 ## Installation
 
 ```console
-pip install liturgical-colour
+pip install liturgical-calendar
 ```
 
 ## Usage, as a command
@@ -63,7 +63,7 @@ for today.
 
 ```console
 # Get info for today
-$ liturgical_colour
+$ liturgical_calendar
 name : 
 prec : 1
 season : Advent
@@ -73,7 +73,7 @@ colour : purple
 colourcode : #ad099a
 
 # Get info for an arbitrary date
-$ liturgical_colour 2023-01-25
+$ liturgical_calendar 2023-01-25
 name : The Conversion of Paul
 url : https://en.wikipedia.org/wiki/Conversion_of_Paul
 prec : 7
@@ -89,11 +89,11 @@ colourcode : #ffffff
 
 ```py
 # Get info for today
-dayinfo = liturgical_colour()
+dayinfo = liturgical_calendar()
 
 # Get info for an arbitrary date
 # Date can be expressed as a string in YYYY-MM-DD format, a Datetime object, or a Date object
-dayinfo = liturgical_colour('YYYY-MM-DD')
+dayinfo = liturgical_calendar('YYYY-MM-DD')
 
 # Access the attributes individually
 print(dayinfo['colour'])

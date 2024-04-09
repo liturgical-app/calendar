@@ -11,7 +11,7 @@ from .feasts import lookup_feast
 
 ##########################################################################
 
-def liturgical_colour(s_date: str, transferred: bool = False):
+def liturgical_calendar(s_date: str, transferred: bool = False):
     """
     Return the liturgical colour for a given day
     This func contains the main logic
@@ -127,7 +127,7 @@ def liturgical_colour(s_date: str, transferred: bool = False):
     # Call recursively to look for yesterday feast and push to possibles
     if transferred is False:
         yestery, yesterm, yesterd = add_delta_days(days-1)
-        transferred_feast = liturgical_colour(s_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
+        transferred_feast = liturgical_calendar(s_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
         if transferred_feast:
             transferred_feast['name'] = transferred_feast['name'] + ' (transferred)'
@@ -234,7 +234,7 @@ def main():
     else:
         mydate = None
 
-    info = liturgical_colour(mydate)
+    info = liturgical_calendar(mydate)
     for key, value in info.items():
         print(key, ':', value)
 
