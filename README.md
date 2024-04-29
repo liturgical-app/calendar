@@ -1,4 +1,4 @@
-# Liturgical Colour
+# Liturgical Calendar
 
 This Python module will return the name, season, week number and liturgical
 colour for any day in the Gregorian calendar, according to the Anglican
@@ -102,7 +102,7 @@ print(dayinfo['colour'])
 ## Issues
 
 If you find bugs (either in the code or in the calendar), please
-[create an issue on GitHub](https://github.com/liturgical/calendar/issues).
+[create an issue on GitHub](https://github.com/liturgical-app/calendar/issues).
 
 Pull requests are always welcome, either to address bugs or add new features.
 
