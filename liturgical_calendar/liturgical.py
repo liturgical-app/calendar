@@ -114,8 +114,8 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     weekno = int(weekno) if int(weekno) > 0 else None
 
     # Now, look for feasts.
-    feast_from_easter    = lookup_feast(easter_point)
-    feast_from_christmas = lookup_feast(10000+100*month+day)
+    feast_from_easter    = lookup_feast('easter', easter_point)
+    feast_from_christmas = lookup_feast('christmas', "%02d-%02d" % (month, day))
 
     if feast_from_easter:
         possibles.append(feast_from_easter)
