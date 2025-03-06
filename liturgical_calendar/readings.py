@@ -28,7 +28,7 @@ def get_readings_for_date(date_str, liturgical_info):
         return sunday_readings.get(week, {}).get(sunday_cycle, {})
     
     else:
-        week = liturgical_info['week']
+        week = liturgical_info['weekday_reading'] if liturgical_info['weekday_reading'] != None else liturgical_info['week']
         day_of_week = date.strftime('%A')  # Get the day of the week (e.g., 'Monday')
         return weekday_readings.get(week, {}).get(day_of_week, {}).get(str(weekday_cycle), {})
 

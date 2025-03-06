@@ -7,7 +7,7 @@ tradition of the Church of England.
 import sys
 from datetime import datetime, date
 
-from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, colour_code, get_week_number
+from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, colour_code, get_week_number, render_week_name
 from .feasts import lookup_feast
 from .readings import get_readings_for_date
 
@@ -68,9 +68,9 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     # First, figure out the season.
     season = ''
     weekno = None
+    weekday_reading = None
 
     advent_sunday = get_advent_sunday(year)
-    print(christmas_point, easter_point)
 
     # Break up the liturgical year into seasons, starting at Advent
     # Set weekno=0 to disable week numbers for that season
@@ -78,6 +78,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         season = 'Advent'
         season_url = 'https://en.wikipedia.org/wiki/Advent'
         weekno = 1 + (christmas_point-advent_sunday) // 7
+        
     elif christmas_point >= 0 and christmas_point <= 11:
         # The Twelve Days of Christmas.
         season = 'Christmas'
@@ -93,6 +94,16 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
         # weekno = 1 + (christmas_point - 47) // 7
         weekno = get_week_number(f_date) - 5
+
+        # Pre-Lent
+        if easter_point > -61 and easter_point <= -47:
+            season = 'Pre-Lent'
+            season_url = 'https://en.wikipedia.org/wiki/Septuagesima'
+            # -48 is start of Lent
+            weekno = 1 + (easter_point * -1 - 47) // 7
+        elif easter_point > -82 and easter_point < -62:
+            weekday_reading = render_week_name('Pre-Lent',  1 + (easter_point * -1 - 47) // 7)[0]
+
     elif easter_point > -47 and easter_point < -7:
         season = 'Lent'
         season_url = 'https://en.wikipedia.org/wiki/Lent'
@@ -119,9 +130,17 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         weekno = get_week_number(f_date) - 18
         # weekno = (easter_point - 56 - dayofweek) // 7 + 3
 
+        if christmas_point >= advent_sunday - 28 and christmas_point < advent_sunday:
+            season = 'Pre-Advent'
+            weekno = 1 + -1 * (christmas_point - advent_sunday + 1) // 7
+
+        else:
+            weekday_reading = f"Trinity {(easter_point - 56) // 7 + 1}"
+
         # Trinity Sunday is the first Sunday after Pentecost, and thus not a Proper
         if easter_point >= 56 and easter_point < 63:
             weekno = 0
+
     weekno = int(weekno) if int(weekno) > 0 else None
 
     # Now, look for feasts.
@@ -138,6 +157,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     # Call recursively to look for yesterday feast and push to possibles
     if transferred is False:
         yestery, yesterm, yesterd = add_delta_days(days-1)
+
         transferred_feast = liturgical_calendar(s_date=f"{yestery}-{yesterm}-{yesterd}", transferred=True)
 
         if transferred_feast:
@@ -145,6 +165,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
             # Sundays can't be transferred
             if transferred_feast['prec'] != 5:
                 possibles.append(transferred_feast)
+
 
     # Maybe a Sunday
     # Shouldn't need to trap weekno=0 here, as the weekno increments on
@@ -173,15 +194,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         result = { 'name': '', 'prec': 1 }
 
     # Render a Week name with or without number
-    if weekno and weekno > 0:
-        if season in ['Ordinary Time', 'Trinity']:
-            weekname = 'Proper'
-        else:
-            weekname = season
-
-        week = f"{weekname} {weekno}"
-    else:
-        week = season
+    week, season = render_week_name(season, weekno)
 
     # Append season info regardless
     result['season'] = season
@@ -189,6 +202,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     result['weekno'] = weekno
     result['week'] = week
     result['date'] = f_date
+    result['weekday_reading'] = weekday_reading 
 
     # Support for special Sundays which are rose
     if result['name'] in [ 'Advent 3', 'Lent 4' ]:

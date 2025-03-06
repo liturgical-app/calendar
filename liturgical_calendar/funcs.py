@@ -161,3 +161,25 @@ def get_week_number(given_date: date) -> int:
     start_of_year += timedelta(days=(6 - start_of_year_weekday))
   delta_days = (given_date - start_of_year).days
   return delta_days // 7 + 1
+
+def render_week_name(season, weekno):
+    """
+    Render a Week name with or without number
+    """
+    if weekno and weekno > 0:
+        if season in ['Ordinary Time', 'Trinity']:
+            weekname = 'Proper'
+        else:
+            weekname = season
+
+        week = f"{weekname} {weekno}"
+
+        # Deal with Pre-Lent and Pre-Advent
+        if season in ['Pre-Lent', 'Pre-Advent']:
+            weekname = season.removeprefix('Pre-')
+            season = 'Ordinary Time'
+            week = f"{weekno} before {weekname}"
+    else:
+        week = season
+
+    return week, season
