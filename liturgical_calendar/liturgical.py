@@ -7,7 +7,7 @@ tradition of the Church of England.
 import sys
 from datetime import datetime, date
 
-from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, colour_code
+from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, colour_code, get_week_number
 from .feasts import lookup_feast
 from .readings import get_readings_for_date
 
@@ -70,6 +70,7 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     weekno = None
 
     advent_sunday = get_advent_sunday(year)
+    print(christmas_point, easter_point)
 
     # Break up the liturgical year into seasons, starting at Advent
     # Set weekno=0 to disable week numbers for that season
@@ -86,11 +87,12 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         season = 'Epiphany'
         season_url = 'https://en.wikipedia.org/wiki/Epiphany_season'
         weekno = 1 + (christmas_point-12-dayofweek) // 7
-    elif christmas_point >= 40 and easter_point <= -47:
+    elif easter_point <= -47:
         # Period of Ordinary Time after Epiphany
         season = 'Ordinary Time'
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
-        weekno = 1 + (christmas_point - 47) // 7
+        # weekno = 1 + (christmas_point - 47) // 7
+        weekno = get_week_number(f_date) - 5
     elif easter_point > -47 and easter_point < -7:
         season = 'Lent'
         season_url = 'https://en.wikipedia.org/wiki/Lent'
@@ -112,7 +114,14 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
         # Period of Ordinary Time after Pentecost
         season = 'Trinity'
         season_url = 'https://en.wikipedia.org/wiki/Ordinary_Time'
-        weekno = (easter_point - 56 - dayofweek) // 7
+
+        # User Propers for Week Numbers
+        weekno = get_week_number(f_date) - 18
+        # weekno = (easter_point - 56 - dayofweek) // 7 + 3
+
+        # Trinity Sunday is the first Sunday after Pentecost, and thus not a Proper
+        if easter_point >= 56 and easter_point < 63:
+            weekno = 0
     weekno = int(weekno) if int(weekno) > 0 else None
 
     # Now, look for feasts.
@@ -165,7 +174,12 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
 
     # Render a Week name with or without number
     if weekno and weekno > 0:
-        week = f"{season} {weekno}"
+        if season in ['Ordinary Time', 'Trinity']:
+            weekname = 'Proper'
+        else:
+            weekname = season
+
+        week = f"{weekname} {weekno}"
     else:
         week = season
 

@@ -141,3 +141,23 @@ def colour_code(colour: str) -> str:
     }
 
     return codes.get(colour)
+
+def get_week_number(given_date: date) -> int:
+  """
+  Return the week number of the year where the week starts on a Sunday
+
+  Parameters
+  ----------
+    given_date: date
+    The date as a datetime.date object
+  Return
+  ------
+    week: int
+    The week number of the year
+  """
+  start_of_year = date(given_date.year, 1, 1)
+  start_of_year_weekday = start_of_year.weekday()
+  if start_of_year_weekday != 6:
+    start_of_year += timedelta(days=(6 - start_of_year_weekday))
+  delta_days = (given_date - start_of_year).days
+  return delta_days // 7 + 1
