@@ -11,17 +11,14 @@ sunday_readings = {
     
     #Epiphany
     'Epiphany 1': {'A': ['Isaiah 42:1-9', 'Acts 10:34-43', 'Matthew 3:13-17', 'Psalm 29'], 'B': ['Genesis 1:1-5', 'Acts 19:1-7', 'Mark 1:4-11', 'Psalm 29'], 'C': ['Isaiah 43:1-7', 'Acts 8:14-17', 'Luke 3:15-17, 21-22', 'Psalm 29']},
-    'Epiphany 2': {'A': ['Isaiah 49:1-7', '1 Corinthians 1:1-9', 'John 1:29-42', 'Psalm 40:1-11'], 'B': ['1 Samuel 3:1-20)', 'Revelation 5:1-10', 'John 1:43-51', 'Psalm 139:1-5, 12-18'], 'C': ['Isaiah 62:1-5', '1 Corinthians 12:1-11', 'John 2:1-11', 'Psalm 36:5-10']},
+    'Epiphany 2': {'A': ['Isaiah 49:1-7', '1 Corinthians 1:1-9', 'John 1:29-42', 'Psalm 40:1-11'], 'B': ['1 Samuel 3:1-20', 'Revelation 5:1-10', 'John 1:43-51', 'Psalm 139:1-5, 12-18'], 'C': ['Isaiah 62:1-5', '1 Corinthians 12:1-11', 'John 2:1-11', 'Psalm 36:5-10']},
     'Epiphany 3': {'A': ['Isaiah 9:1-4', '1 Corinthians 1:10-18', 'Matthew 4:12-23', 'Psalm 27:1, 4-11'], 'B': ['Genesis 14:17-20', 'Revelation 19:6-10', 'John 2:1-11', 'Psalm 128'], 'C': ['Nehemiah 8:1-3, 5-6, 8-10', '1 Corinthians 12:12-31a', 'Luke 4:14-21', 'Psalm 19']},
     'Epiphany 4': {'A': ['1 Kings 17:8-16', '1 Corinthians 1:18-31', 'John 2:1-11', 'Psalm 36:5-10'], 'B': ['Deuteronomy 18:15-20', 'Revelation 12:1-5a', 'Mark 1:21-28', 'Psalm 34'], 'C': ['Ezekiel 43:27 - 44:4', '1 Corinthians 13:1-13', 'Luke 2:22-40', 'Psalm 48']},
     
     #Ordinary Time
     'Proper 1': {'A': ['Isaiah 58:1-9a', '1 Corinthians 2:1-16', 'Matthew 5:13-20', 'Psalm 112:1-9'], 'B': ['Isaiah 40:21-31', '1 Corinthians 9:16-23', 'Mark 1:29-39', 'Psalm 147:1-12, 21c'], 'C': ['Isaiah 6:1-13', '1 Corinthians 15:1-11', 'Luke 5:1-11', 'Psalm 138']},
     'Proper 2': {'A': ['Deuteronomy 30:15-20', '1 Corinthians 3:1-9', 'Matthew 5:21-37', 'Psalm 119:1-8'], 'B': ['2 Kings 5:1-14', '1 Corinthians 9:24-27', 'Mark 1:40-45', 'Psalm 30'], 'C': ['Jeremiah 17:5-10', '1 Corinthians 15:12-20', 'Luke 6:17-26', 'Psalm 1']}, 
-    'Proper 3': {'A': ['Leviticus 19:1-2, 9-18', '1 Corinthians 3:10-11, 16-23', 'Matthew 5:38-48', 'Psalm 119:33-40'], 'B': ['Isaiah 43:18-25', '2 Corinthians 1:18-22 ', 'Mark 2:1-12', 'Psalm 41'], 'C': ['Genesis 45:3-11,15', '1 Corinthians 15:35-38, 42-50', 'Luke 6:27-38', 'Psalm 37:1-11, 40-41']},
-
-    #Second Sunday Before Lent?
-    #The Sunday next before Lent?
+    'Proper 3': {'A': ['Leviticus 19:1-2, 9-18', '1 Corinthians 3:10-11, 16-23', 'Matthew 5:38-48', 'Psalm 119:33-40'], 'B': ['Isaiah 43:18-25', '2 Corinthians 1:18-22', 'Mark 2:1-12', 'Psalm 41'], 'C': ['Genesis 45:3-11,15', '1 Corinthians 15:35-38, 42-50', 'Luke 6:27-38', 'Psalm 37:1-11, 40-41']},
 
     '2 before Lent': {'A': ['Genesis 1:1-2:3', 'Romans 8:18-25', 'Matthew 6:25-32', 'Psalm 136'], 'B': ['Proverbs 8:1,22-31', 'Colossians 1:15-20', 'John 1:1-14', 'Psalm 104:26-37'], 'C': ['Genesis 2:4b-9, 15-25', 'Revelation 4', 'Luke 8:22-25', 'Psalm 65']},
     '1 before Lent': {'A': ['Exodus 24:12-18', '2 Peter 1:16-21', 'Matthew 17:1-9', 'Psalm 2'], 'B': ['2 Kings 2:1-12', '2 Corinthians 4:3-6', 'Mark 9:2-9', 'Psalm 50:1-6'], 'C': ['Exodus 34:29-35', '2 Corinthians 3:12-4:2', 'Luke 9:28-43', 'Psalm 99']},
@@ -31,8 +28,8 @@ sunday_readings = {
     'Lent 2': {'A': ['Genesis 12:1-4a', 'Romans 4:1-5, 13-17', 'John 3:1-17', 'Psalm 121'], 'B': ['Genesis 17:1-7, 15-16', 'Romans 4:13-25', 'Mark 8:31-38', 'Psalm 22:23-31'], 'C': ['Genesis 15:1-12, 17-18', 'Philippians 3:17-4:1', 'Luke 13:31-35', 'Psalm 27']},
     'Lent 3': {'A': ['Exodus 17:1-7', 'Romans 5:1-11', 'John 4:5-42', 'Psalm 95'], 'B': ['Exodus 20:1-17', '1 Corinthians 1:18-25', 'John 2:13-22', 'Psalm 19'], 'C': ['Isaiah 55:1-9', '1 Corinthians 10:1-13', 'Luke 13:1-9', 'Psalm 63:1-8']},
     'Lent 4': {'A': ['1 Samuel 16:1-13', 'Ephesians 5:8-14', 'John 9:1-41', 'Psalm 23'], 'B': ['Numbers 21:4-9', 'Ephesians 2:1-10', 'John 3:14-21', 'Psalm 107:1-3, 17-22'], 'C': ['Joshua 5:9-12', '2 Corinthians 5:16-21', 'Luke 15:1-3, 11b-32', 'Psalm 32']},
-    'Lent 5': {'A': ['Ezekiel 37:1-14', 'Romans 8:6-11', 'John 11:1-45', 'Psalm 130'], 'B': ['Jeremiah 31:31-34', 'Hebrews 5:5-10', 'John 12:20-33', 'Psalm 51:1-13 or Psalm 119:9-16 '], 'C': ['Isaiah 43:16-21', 'Philippians 3:4b-14', 'John 12:1-8', 'Psalm 126']},
-    'Palm Sunday': {'A': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Matthew 26:14-27:66 or Matthew 27:11-54 ', 'Psalm 31:9-16'], 'B': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Mark 14:1-15:47 or Mark 15:1-39[40-47]', 'Psalm 31:9-16'], 'C': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Luke 22:14-23:56 or Luke 23:1-49', 'Psalm 31:9-16']},
+    'Lent 5': {'A': ['Ezekiel 37:1-14', 'Romans 8:6-11', 'John 11:1-45', 'Psalm 130'], 'B': ['Jeremiah 31:31-34', 'Hebrews 5:5-10', 'John 12:20-33', 'Psalm 51:1-13 or Psalm 119:9-16'], 'C': ['Isaiah 43:16-21', 'Philippians 3:4b-14', 'John 12:1-8', 'Psalm 126']},
+    'Palm Sunday': {'A': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Matthew 26:14-27:66 or Matthew 27:11-54', 'Psalm 31:9-16'], 'B': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Mark 14:1-15:47 or Mark 15:1-39[40-47]', 'Psalm 31:9-16'], 'C': ['Isaiah 50:4-9a', 'Philippians 2:5-11', 'Luke 22:14-23:56 or Luke 23:1-49', 'Psalm 31:9-16']},
 
     #Easter
     'Easter 1': {'A': ['Acts 10:34-43', 'Colossians 3:1-4', 'Matthew 28:1-10 ', 'Psalm 118:1-2, 14-24'], 'B': ['Isaiah 25:6-9 ', 'Acts 10:34-43', 'Mark 16:1-8', 'Psalm 118:1-2, 14-24'], 'C': ['Isaiah 65:17-25', 'Acts 10:34-43', 'John 20:1-18', 'Psalm 118:1-2, 14-24']},
@@ -50,9 +47,31 @@ sunday_readings = {
     'Trinity': {'A': ['Isaiah 40:12-17,27-31', '2 Corinthians 13:11-13', 'Matthew 28:16-20', 'Psalm 8'], 'B': ['Isaiah 6:1-8', 'Romans 8:12-17', 'John 3:1-17', 'Psalm 29'], 'C': ['Proverbs 8:1-4, 22-31', 'Romans 5:1-5', 'John 16:12-15', 'Psalm 8']},
 
     #Ordinary Time
-    # 'Prope
-}
+    'Proper 4': {'A': ['Genesis 6:9-22, 7:24, 8:14-19', 'Romans 1:16-17, 3:22-31', 'Matthew 7:21-29 ', 'Psalm 46'], 'B': ['1 Samuel 3:1-20', '2 Corinthians 4:5-12', 'Mark 2:23-3:6', 'Psalm 139:1-5,12-18'], 'C': ['1 Kings 18:20-39', 'Galatians 1:1-12', 'Luke 7:1-10', 'Psalm 96']},
+    'Proper 5': {'A': ['Genesis 12:1-9 ', 'Romans 4:13-25', 'Matthew 9:9-13,18-26 ', 'Psalm 33:1-12'], 'B': ['1 Samuel 8:4-20, 11:14-15', '2 Corinthians 4:13-5:1', 'Mark 3:20-35', 'Psalm 138'], 'C': ['1 Kings 17:8-24', 'Galatians 1:11-24', 'Luke 7:11-17', 'Psalm 146']},
+    'Proper 6': {'A': ['Genesis 18:1-15, 21:1-7', 'Romans 5:1-8', 'Matthew 9:35-10:8, (9-23) ', 'Psalm 116:1,10-17'], 'B': ['1 Samuel 15:34-16:13', '2 Corinthians 5:6-17', 'Mark 4:26-34', 'Psalm 20'], 'C': ['1 Kings 21:1-21', 'Galatians 2:15-21', '7:36-8:3', 'Psalm 5:1-8']},
+    'Proper 7': {'A': ['Genesis 21:8-21', 'Romans 6:1b-11', 'Matthew 10:24-39 ', 'Psalm 86:1-10, 16-17'], 'B': ['1 Samuel 17:(1-23), 32-49', '2 Corinthians 6:1-13', 'Mark 4:35-41', 'Psalm 9:9-20', ['Psalm 133']], 'C': ['1 Kings 19:1-15a', 'Galatians 3:23-29', 'Luke 8:26-39 ', 'Psalm 42-43:end']},
+    'Proper 8': {'A': ['Genesis 22:1-14', 'Romans 6:12-23', 'Matthew 10:40-42 ', 'Psalm 13'], 'B': ['2 Samuel 1:1, 17-27', '2 Corinthians 8:7-15', 'Mark 5:21-43 ', 'Psalm 130'], 'C': ['2 Kings 2:1-2, 6-14', 'Galatians 5:1, 13-25', 'Luke 9:51-62', 'Psalm 77:1-2, 11-20']},
+    'Proper 9': {'A': ['Genesis 24:34-38, 42-49, 58-67', 'Romans 7:15-25a', 'Matthew 11:16-19, 25-30', 'Psalm 45:10-17'], 'B': ['2 Samuel 5:1-5, 9-10', '2 Corinthians 12:2-10', 'Mark 6:1-13', 'Psalm 48'], 'C': ['2 Kings 5:1-14', 'Galatians 6:1-16', 'Luke 10:1-11, 16-20', 'Psalm 30']},
+    'Proper 10': {'A': ['Genesis 25:19-34', 'Romans 8:1-11', 'Matthew 13:1-9, 18-23', 'Psalm 119:105-112'], 'B': ['2 Samuel 6:1-5, 12b-19', 'Ephesians 1:3-14 ', 'Mark 6:14-29', 'Psalm 24'], 'C': ['Amos 7:7-17', 'Colossians 1:1-14', 'Luke 10:25-37', 'Psalm 82']},
+    'Proper 11': {'A': ['Genesis 28:10-19a', 'Romans 8:12-25', 'Matthew 13:24-30, 36-43', 'Psalm 139:1-11, 23-24'], 'B': ['2 Samuel 7:1-14a', 'Ephesians 2:11-22', 'Mark 6:30-34, 53-56 ', 'Psalm 89:20-37'], 'C': ['Amos 8:1-12', 'Colossians 1:15-28', 'Luke 10:38-42', 'Psalm 52']},
+    'Proper 12': {'A': ['Genesis 29:15-28', 'Romans 8:26-39', 'Matthew 13:31-33, 44-52', 'Psalm 105:1-11, 45b'], 'B': ['2 Samuel 11:1-15', 'Ephesians 3:14-21', 'John 6:1-21', 'Psalm 14'], 'C': ['Hosea 1:2-10', 'Colossians 2:6-15, (16-19)', 'Luke 11:1-13', 'Psalm 85']},
+    'Proper 13': {'A': ['Genesis 32:22-31', 'Romans 9:1-5', 'Matthew 14:13-21 ', 'Psalm 17:1-7, 16'], 'B': ['2 Samuel 11:26-12:13a', 'Ephesians 4:1-16', 'John 6:24-35', 'Psalm 51:1-13'], 'C': ['Hosea 11:1-11', 'Colossians 3:1-11', 'Luke 12:13-21', 'Psalm 107:1-9, 43']},
+    'Proper 14': {'A': ['Genesis 37:1-4, 12-28', 'Romans 10:5-15', 'Matthew 14:22-33', 'Psalm 105:1-6, 16-22, 45b'], 'B': ['2 Samuel 18:5-9, 15, 31-33', 'Ephesians 4:25-5:2', 'John 6:35, 41-51 ', 'Psalm 130'], 'C': ['Isaiah 1:1, 10-20', 'Hebrews 11:1-3, 8-16', 'Luke 12:32-40 ', 'Psalm 50:1-8, 23-24']},
+    'Proper 15': {'A': ['Genesis 45:1-15', 'Romans 11:1-2a, 29-32', 'Matthew 15:10-28', 'Psalm 133'], 'B': ['1 Kings 2:10-12, 3:3-14', 'Ephesians 5:15-20', 'John 6:51-58', 'Psalm 111'], 'C': ['Isaiah 5:1-7', 'Hebrews 11:29-12:2', 'Luke 12:49-56', 'Psalm 80:1-2,9-20']},
+    'Proper 16': {'A': ['Exodus 1:8-2:10', 'Romans 12:1-8', 'Matthew 16:13-20 ', 'Psalm 124'], 'B': ['1 Kings 8:(1-11), 22-30, 41-43', 'Ephesians 6:10-20', 'John 6:56-69', 'Psalm 84'], 'C': ['Jeremiah 1:4-10', 'Hebrews 12:18-29', 'Luke 13:10-17', 'Psalm 71:1-6']},
+    'Proper 17': {'A': ['Exodus 3:1-15', 'Romans 12:9-21', 'Matthew 16:21-28 ', 'Psalm 105:1-6, 23-26, 45c'], 'B': ['Song of Solomon 2:8-13', 'James 1:17-27', 'Mark 7:1-8, 14-15, 21-23', 'Psalm 45:1-2, 6-9'], 'C': ['Jeremiah 2:4-13', 'Hebrews 13:1-8, 15-16', 'Luke 14:1, 7-14 ', 'Psalm 81:1, 10-16']},
+    'Proper 18': {'A': ['Exodus 12:1-14', 'Romans 13:8-14', 'Matthew 18:15-20 ', 'Psalm 149'], 'B': ['Proverbs 22:1-2, 8-9, 22-23', 'James 2:1-10, (11-13), 14-17', 'Mark 7:24-37', 'Psalm 125'], 'C': ['Jeremiah 18:1-11', 'Philemon 1-21', 'Luke 14:25-33 ', 'Psalm 139:1-5, 12-17']},
+    'Proper 19': {'A': ['Exodus 14:19-31', 'Romans 14:1-12', 'Matthew 18:21-35 ', 'Psalm 114'], 'B': ['Proverbs 1:20-33', 'James 3:1-12', 'Mark 8:27-38', 'Psalm 19'], 'C': ['Jeremiah 4:11-12, 22-28', '1 Timothy 1:12-17', 'Luke 15:1-10', 'Psalm 14']},
+    'Proper 20': {'A': ['Exodus 16:2-15', 'Philippians 1:21-30', 'Matthew 20:1-16 ', 'Psalm 105:1-6, 37-45'], 'B': ['Proverbs 31:10-31', 'James 3:13-4:3, 7-8a', 'Mark 9:30-37', 'Psalm 1'], 'C': ['Jeremiah 8:18-9:1', '1 Timothy 2:1-7', 'Luke 16:1-13', 'Psalm 79:1-9']},
+    'Proper 21': {'A': ['Exodus 17:1-7', 'Philippians 2:1-13', 'Matthew 21:23-32 ', 'Psalm 78:1-4, 12-16'], 'B': ['Esther 7:1-6, 9-10, 9:20-22', 'James 5:13-20', 'Mark 9:38-50', 'Psalm 124'], 'C': ['Jeremiah 32:1-3a, 6-15', '1 Timothy 6:6-19', 'Luke 16:19-31 ', 'Psalm 91:1-6, 14-16']},
+    'Proper 22': {'A': ['Exodus 20:1-4, 7-9, 12-20', 'Philippians 3:4b-14', 'Matthew 21:33-46 ', 'Psalm 19'], 'B': ['Job 1:1, 2:1-10', 'Hebrews 1:1-4, 2:5-12', 'Mark 10:2-16', 'Psalm 26'], 'C': ['Lamentations 1:1-6', '2 Timothy 1:1-14', 'Luke 17:5-10', 'Psalm 137']},
+    'Proper 23': {'A': ['Exodus 32:1-14', 'Philippians 4:1-9', 'Matthew 22:1-14 ', 'Psalm 106:1-6, 19-23'], 'B': ['Job 23:1-9, 16-17', 'Hebrews 4:12-16', 'Mark 10:17-31', 'Psalm 22:1-15'], 'C': ['Jeremiah 29:1, 4-7', '2 Timothy 2:8-15', 'Luke 17:11-19', 'Psalm 66:1-11']},
+    'Proper 24': {'A': ['Exodus 33:12-23', '1 Thessalonians 1:1-10', 'Matthew 22:15-22 ', 'Psalm 99:1-9'], 'B': ['Job 38:1-7, (34-41)', 'Hebrews 5:1-10', 'Mark 10:35-45', 'Psalm 104:1-10, 26, 35c'], 'C': ['Jeremiah 31:27-34', '2 Timothy 3:14-4:5', 'Luke 18:1-8', 'Psalm 119:97-104']},
+    'Proper 25': {'A': ['Deuteronomy 34:1-12', '1 Thessalonians 2:1-8', 'Matthew 22:34-46 ', 'Psalm 90:1-6, 13-17'], 'B': ['Job 42:1-6, 10-17', 'Hebrews 7:23-28', 'Mark 10:46-52', 'Psalm 34:1-8, 19-22'], 'C': ['Joel 2:23-32', '2 Timothy 4:6-8, 16-18', 'Luke 18:9-14', 'Psalm 65']},
 
+    # '4 before Advent':
+}
 weekday_readings = {
     'Advent 1': {
         'Monday': {'1': ['Isaiah 25:1-9', 'Matthew 12:1-21'], '2': ['Isaiah 42:18-end', 'Revelation 19']},
