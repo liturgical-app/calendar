@@ -221,6 +221,21 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     # Set colour code
     result['colourcode'] = colour_code(result['colour'])
 
+    # Ember days
+    result['ember'] = 0
+    # Observed on the Wednesdays, Fridays and Saturdays within the weeks before:
+    if dayofweek in [3, 5, 6]:
+        # - the Third Sunday of Advent
+        # - the Second Sunday of Lent
+        if result['week'] in ['Advent 2', 'Lent 1']:
+            result['ember'] = 1
+        # - the Sunday nearest to 29 June (179 days before Christmas, ±3 days to catch the nearest Sunday, -4 to catch Wednesday, -1 to limit to Saturday)
+        elif christmas_point in range(-186, -176):
+            result['ember'] = 1
+        # - the Sunday nearest to 29 September (87 days before Christmas ±3 days to catch the nearest Sunday, -4 to catch Wednesday, -1 to limit to Saturday)
+        elif christmas_point in range(-94, -85):
+            result['ember'] = 1
+
     return result
 
 def main():

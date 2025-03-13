@@ -66,11 +66,14 @@ for today.
 $ liturgical_calendar
 name : 
 prec : 1
-season : Advent
-weekno : 4
-date : 2023-12-21
+season : Lent
+season_url : https://en.wikipedia.org/wiki/Lent
+weekno : 1
+week : Lent 1
+date : 2025-03-13
 colour : purple
-colourcode : #ad099a
+colourcode : #664fa6
+ember : 0
 
 # Get info for an arbitrary date
 $ liturgical_calendar 2023-01-25
@@ -78,11 +81,15 @@ name : The Conversion of Paul
 url : https://en.wikipedia.org/wiki/Conversion_of_Paul
 prec : 7
 type : Festival
+type_url : https://en.wikipedia.org/wiki/Festival_(Church_of_England)
 season : Epiphany
+season_url : https://en.wikipedia.org/wiki/Epiphany_season
 weekno : 3
+week : Epiphany 3
 date : 2023-01-25
 colour : white
 colourcode : #ffffff
+ember : 0
 ```
 
 ## Usage, as a library
