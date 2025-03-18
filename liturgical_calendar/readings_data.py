@@ -70,7 +70,10 @@ sunday_readings = {
     'Proper 24': {'A': ['Exodus 33:12-23', '1 Thessalonians 1:1-10', 'Matthew 22:15-22 ', 'Psalm 99:1-9'], 'B': ['Job 38:1-7, (34-41)', 'Hebrews 5:1-10', 'Mark 10:35-45', 'Psalm 104:1-10, 26, 35c'], 'C': ['Jeremiah 31:27-34', '2 Timothy 3:14-4:5', 'Luke 18:1-8', 'Psalm 119:97-104']},
     'Proper 25': {'A': ['Deuteronomy 34:1-12', '1 Thessalonians 2:1-8', 'Matthew 22:34-46 ', 'Psalm 90:1-6, 13-17'], 'B': ['Job 42:1-6, 10-17', 'Hebrews 7:23-28', 'Mark 10:46-52', 'Psalm 34:1-8, 19-22'], 'C': ['Joel 2:23-32', '2 Timothy 4:6-8, 16-18', 'Luke 18:9-14', 'Psalm 65']},
 
-    # '4 before Advent':
+    '4 before Advent': {'A': ['Micah 3:5-12', '1 Thessalonians 2:9-13', 'Matthew 24:1-14', 'Psalm 43'], 'B': ['Hebrews 9:11-14', 'Deuteronomy 6:1-9', 'Mark 12:28-34', 'Psalm 119:1-8'], 'C': ['Isaiah 1:10-18', '2 Thessalonians 1:1-12', 'Luke 19:1-10', 'Psalm 32:1-8']},
+    '3 before Advent': {'A': ['Amos 5:18-24', '1 Thessalonians 4:13-18', 'Matthew 25:1-13', 'Psalm 70'], 'B': ['Hebrews 9:24-28', 'Jonah 3:1-5,10', 'Mark 1:14-20', 'Psalm 62:5-12'], 'C': ['Job 19:23-27a', '2 Thessalonians 2:1-5,13-17', 'Luke 20:27-38', 'Psalm 17:1-9']},
+    '2 before Advent': {'A': ['Zephaniah 1:7, 12-18', '1 Thessalonians 5:1-11', 'Matthew 25:14-30', 'Psalm 90:1-8, 12'], 'B': ['Hebrews 10:11-14, 19-25', 'Daniel 12:1-3', 'Mark 13:1-8 ', 'Psalm 16'], 'C': ['Malachi 4:1-2a', '2 Thessalonians 3:6-13', 'Luke 21:5-19', 'Psalm 98']},
+    '1 before Advent': {'A': ['Ezekiel 34:11-16, 20-24', 'Ephesians 1:15-23', 'Matthew 25:31-46', 'Psalm 95:1-7'], 'B': ['Daniel 7:9-10, 13-14', 'Revelation 1:4b-8', 'John 18:33-37', 'Psalm 93'], 'C': ['Jeremiah 23:1-6', 'Colossians 1:11-20', 'Luke 23:33-43', 'Psalm 46']},
 }
 weekday_readings = {
     'Advent 1': {
