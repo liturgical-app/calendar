@@ -12,8 +12,13 @@ def lookup_feast(datecode):
         # Anglican Holy Days are variously categorised as Principal Feasts,
         # Principal Holy Days, Festivals, Lesser Festivals, or Commemorations
         # The observance of Lesser Festivals or Commemorations is optional.
+
+        # Placeholder days are used e.g. for Easter Week where there are not
+        # defined Principal days, but we still need to displace 
+
         # Principal Feasts    = prec 9
         # Principal Holy Days = prec 9
+        # Placeholder days    = prec 8
         # Festivals           = prec 7
         # Sundays             = prec 5
         # Lesser Festivals    = prec 4
@@ -33,6 +38,14 @@ def lookup_feast(datecode):
         -2: { 'name': 'Good Friday', 'colour':'red', 'url': 'https://en.wikipedia.org/wiki/Good_Friday', 'prec':9, 'type': 'Principal Holy Day' },
         -1: { 'name': 'Holy Saturday', 'colour':'not given', 'url': 'https://en.wikipedia.org/wiki/Holy_Saturday', 'prec':9, 'type': 'Principal Holy Day' },
         0 : { 'name': 'Easter', 'url': 'https://en.wikipedia.org/wiki/Easter', 'prec':9, 'type': 'Principal Feast' },
+
+        1 : { 'name': 'Easter Monday', 'url': 'https://en.wikipedia.org/wiki/Easter_Monday', 'prec':8, },
+        2 : { 'name': 'Easter Tuesday', 'url': 'https://en.wikipedia.org/wiki/Easter_Tuesday', 'prec':8,  },
+        3 : { 'name': 'Easter Wednesday', 'url': 'https://en.wikipedia.org/wiki/Octave_of_Easter', 'prec':8, }, 
+        4 : { 'name': 'Easter Thursday', 'url': 'https://en.wikipedia.org/wiki/Octave_of_Easter', 'prec':8,  },
+        5 : { 'name': 'Easter Friday', 'url': 'https://en.wikipedia.org/wiki/Easter_Friday', 'prec':8,  },
+        6 : { 'name': 'Easter Saturday', 'url': 'https://en.wikipedia.org/wiki/Easter_Saturday', 'prec':8, }, 
+
         39: { 'name': 'Ascension', 'url': 'https://en.wikipedia.org/wiki/Ascension_Day', 'prec':9, 'type': 'Principal Feast' },
         49: { 'name': 'Pentecost', 'colour': 'red', 'url': 'https://en.wikipedia.org/wiki/Pentecost', 'prec':9, 'type': 'Principal Feast' },
         56: { 'name': 'Trinity', 'url': 'https://en.wikipedia.org/wiki/Trinity_Sunday', 'prec':9, 'type': 'Principal Feast' },
