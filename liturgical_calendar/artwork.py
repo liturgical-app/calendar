@@ -79,7 +79,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '02-06': { 'name': 'Martyrs of Japan', 'source': 'https://www.instagram.com/p/DFsHIB5uZz_/'},
             '02-08': { 'name': 'Josephine Bakhita', 'url': 'https://en.wikipedia.org/wiki/Josephine_Bakhita', 'source': 'https://www.instagram.com/p/DF0HXRROh0D/'},
             '02-10': { 'name': 'Scholastica', 'source': 'https://www.instagram.com/p/DF480AFuBOa/'},
-            '02-12': { 'name': 'Lady Jane Grey','martyr': 1, 'url': 'https://en.wikipedia.org/wiki/Lady_Jane_Grey', 'source': 'https://www.instagram.com/p/C6hvd0DO7RU/'}
+            '02-12': { 'name': 'Lady Jane Grey','martyr': 1, 'url': 'https://en.wikipedia.org/wiki/Lady_Jane_Grey', 'source': 'https://www.instagram.com/p/C6hvd0DO7RU/'},
             '02-13': { 'name': 'Absalom Jones', 'url': 'https://en.wikipedia.org/wiki/Absalom_Jones', 'source': 'https://www.instagram.com/p/DGA3ikqOtD4/' },
             '02-14': { 'name': 'Valentine, Cyril and Methodius', 'source': 'https://www.instagram.com/p/DGDcsizOQ2x/'},
             '02-15': { 'name': 'Thomas Bray', 'source': 'https://www.instagram.com/p/DGGAZ3JO7AN/'},
@@ -108,36 +108,36 @@ def lookup_feast_artwork(relative_to, pointer):
             '03-19': { 'name': 'Joseph of Nazareth', 'source': 'https://www.instagram.com/p/C4ra3V3O-9m/' },
             '03-20': { 'name': 'Cuthbert', 'source': 'https://www.instagram.com/p/C4vJ325uCF5/' },
             '03-21': { 'name': 'Thomas Cranmer', 'source': 'https://www.instagram.com/p/C4xqiSUO28D/'},
-            '03-22': { 'name': 'James DeKoven', 'url': 'https://en.wikipedia.org/wiki/James_DeKoven', 'source': 'https://www.instagram.com/p/C4zErm9uhil/'}
-            '03-23': { 'name': 'Gregory the Illuminator', 'url': 'https://en.wikipedia.org/wiki/Gregory_the_Illuminator', 'source': 'https://www.instagram.com/p/C43F6aQO40V/'}
+            '03-22': { 'name': 'James DeKoven', 'url': 'https://en.wikipedia.org/wiki/James_DeKoven', 'source': 'https://www.instagram.com/p/C4zErm9uhil/'},
+            '03-23': { 'name': 'Gregory the Illuminator', 'url': 'https://en.wikipedia.org/wiki/Gregory_the_Illuminator', 'source': 'https://www.instagram.com/p/C43F6aQO40V/'},
             '03-24': { 'name': 'Walter Hilton of Thurgarton', 'url': 'https://en.wikipedia.org/wiki/Walter_Hilton', 'prec':3},
-            '03-24': { 'name': 'Óscar Romero', 'url': 'https://en.wikipedia.org/wiki/Óscar_Romero', 'source': 'https://www.instagram.com/p/C43upVCOY05/'}
+            '03-24': { 'name': 'Óscar Romero', 'url': 'https://en.wikipedia.org/wiki/Óscar_Romero', 'source': 'https://www.instagram.com/p/C43upVCOY05/'},
             '03-25': { 'name': 'The Annunciation of our Lord', 'source': 'https://www.instagram.com/p/C5fxTOjuVlq/' },
             '03-26': { 'name': 'Harriet Monsell', 'url': 'https://en.wikipedia.org/wiki/Harriet_Monsell', 'prec':3},
-            '03-27': { 'name': 'Charles Henry Brent', 'url': 'https://en.wikipedia.org/wiki/Charles_Brent','source': 'https://www.instagram.com/p/C4_vq7kOdnb/'}
-            '03-29': { 'name': 'John Keble', 'url': 'https://en.wikipedia.org/wiki/John_Keble', 'source': 'https://www.instagram.com/p/C5OGi-lOGhC/'}
+            '03-27': { 'name': 'Charles Henry Brent', 'url': 'https://en.wikipedia.org/wiki/Charles_Brent','source': 'https://www.instagram.com/p/C4_vq7kOdnb/'},
+            '03-29': { 'name': 'John Keble', 'url': 'https://en.wikipedia.org/wiki/John_Keble', 'source': 'https://www.instagram.com/p/C5OGi-lOGhC/'},
             '03-31': { 'name': 'John Donne', 'source': 'https://www.instagram.com/p/C5OJnsSuML-/'},
 
             '04-01': { 'name': 'Frederick Denison Maurice', 'url': 'https://en.wikipedia.org/wiki/Frederick_Denison_Maurice', 'prec':3},
-            '04-01': { 'name': 'Mary of Egypt', 'url': 'https://en.wikipedia.org/wiki/Mary_of_Egypt', 'source': 'https://www.instagram.com/p/C5WubupuY2B/'}
-            '04-01': { 'name': 'Frederick Denison Maurice', 'url': 'https://en.wikipedia.org/wiki/F._D._Maurice', 'source': 'https://www.instagram.com/p/C5OocItuiTn/'}
-            '04-02': { 'name': 'James Lloyd Breck', 'url': 'https://en.wikipedia.org/wiki/James_Lloyd_Breck', 'source': 'https://www.instagram.com/p/C5TOddZud_1/'}
-            '04-02': { 'name': 'Sakachuwescum', 'url': 'https://en.wikipedia.org/wiki/Henry_Budd', 'source': 'https://www.instagram.com/p/C5QjoK-u8bm/'}
-            '04-04': { 'name': 'Benedict the African', 'url': 'https://en.wikipedia.org/wiki/Benedict_the_Moor', 'source': 'https://www.instagram.com/p/C5rLSbauanm/'}
-            '04-07': { 'name': 'Tikhon of Moscow', 'url': 'https://en.wikipedia.org/wiki/Patriarch_Tikhon_of_Moscow', 'source': 'https://www.instagram.com/p/C5bD9q0O7ln/'}
-            '04-08': { 'name': 'William Augustus Muhlenberg', 'url': 'https://en.wikipedia.org/wiki/William_Augustus_Muhlenberg', 'source': 'https://www.instagram.com/p/C5ewjs3us-m/'}
+            '04-01': { 'name': 'Mary of Egypt', 'url': 'https://en.wikipedia.org/wiki/Mary_of_Egypt', 'source': 'https://www.instagram.com/p/C5WubupuY2B/'},
+            '04-01': { 'name': 'Frederick Denison Maurice', 'url': 'https://en.wikipedia.org/wiki/F._D._Maurice', 'source': 'https://www.instagram.com/p/C5OocItuiTn/'},
+            '04-02': { 'name': 'James Lloyd Breck', 'url': 'https://en.wikipedia.org/wiki/James_Lloyd_Breck', 'source': 'https://www.instagram.com/p/C5TOddZud_1/'},
+            '04-02': { 'name': 'Sakachuwescum', 'url': 'https://en.wikipedia.org/wiki/Henry_Budd', 'source': 'https://www.instagram.com/p/C5QjoK-u8bm/'},
+            '04-04': { 'name': 'Benedict the African', 'url': 'https://en.wikipedia.org/wiki/Benedict_the_Moor', 'source': 'https://www.instagram.com/p/C5rLSbauanm/'},
+            '04-07': { 'name': 'Tikhon of Moscow', 'url': 'https://en.wikipedia.org/wiki/Patriarch_Tikhon_of_Moscow', 'source': 'https://www.instagram.com/p/C5bD9q0O7ln/'},
+            '04-08': { 'name': 'William Augustus Muhlenberg', 'url': 'https://en.wikipedia.org/wiki/William_Augustus_Muhlenberg', 'source': 'https://www.instagram.com/p/C5ewjs3us-m/'},
             '04-09': { 'name': 'Dietrich Bonhoeffer', 'source': 'https://www.instagram.com/p/C5ihJhwu87l/'},
             '04-10': { 'name': 'William Law', 'source': 'https://www.instagram.com/p/C5k_MJCuTOM/' },
             '04-11': { 'name': 'George Selwyn', 'source': 'https://www.instagram.com/p/C5nvg-cu5eH/'},
-            '04-12': { 'name': 'Adoniram Judson', 'url': 'https://en.wikipedia.org/wiki/Adoniram_Judson', 'source': 'https://www.instagram.com/p/C5qMqjFOZi_/'}
-            '04-14': { 'name': 'Hermione of Ephesus', 'url': 'https://en.wikipedia.org/wiki/Hermione_of_Ephesus','source':'https://www.instagram.com/p/C5tLwNFu_rq/'}
-            '04-15': { 'name': 'Damien of Molokai', 'url': 'https://en.wikipedia.org/wiki/Father_Damien', 'source': 'https://www.instagram.com/p/C5yJrcJgAHV/'}
+            '04-12': { 'name': 'Adoniram Judson', 'url': 'https://en.wikipedia.org/wiki/Adoniram_Judson', 'source': 'https://www.instagram.com/p/C5qMqjFOZi_/'},
+            '04-14': { 'name': 'Hermione of Ephesus', 'url': 'https://en.wikipedia.org/wiki/Hermione_of_Ephesus','source':'https://www.instagram.com/p/C5tLwNFu_rq/'},
+            '04-15': { 'name': 'Damien of Molokai', 'url': 'https://en.wikipedia.org/wiki/Father_Damien', 'source': 'https://www.instagram.com/p/C5yJrcJgAHV/'},
             '04-16': { 'name': 'Isabella Gilmore', 'url': 'https://en.wikipedia.org/wiki/Isabella_Gilmore', 'prec':3},
-            '04-17': { 'name': 'Kateri Tekakwitha', 'url': 'https://en.wikipedia.org/wiki/Kateri_Tekakwitha', 'source': 'https://www.instagram.com/p/C53ONvTO8ap/'}
+            '04-17': { 'name': 'Kateri Tekakwitha', 'url': 'https://en.wikipedia.org/wiki/Kateri_Tekakwitha', 'source': 'https://www.instagram.com/p/C53ONvTO8ap/'},
             '04-19': { 'name': 'Alphege', 'source': 'https://www.instagram.com/p/C58eObhOqQ9/' },
             '04-21': { 'name': 'Anselm', 'source': 'https://www.instagram.com/p/C5_fx-DOlyp/' },
             '04-23': { 'name': 'George', 'source': 'https://www.instagram.com/p/C6G_iISOn_V/' },
-            '04-23': { 'name': 'Michael Ramsay', 'url': 'https://en.wikipedia.org/wiki/Michael_Ramsey', 'source': 'https://www.instagram.com/p/C6JRaHaO4Rg/'}
+            '04-23': { 'name': 'Michael Ramsay', 'url': 'https://en.wikipedia.org/wiki/Michael_Ramsey', 'source': 'https://www.instagram.com/p/C6JRaHaO4Rg/'},
             '04-24': { 'name': 'Mellitus', 'url': 'https://en.wikipedia.org/wiki/Mellitus', 'prec':3},
             '04-25': { 'name': 'Mark the Evangelist', 'source': 'https://www.instagram.com/p/C6Lv4AXLL3a/' },
             '04-27': { 'name': 'Christina Rossetti', 'source': 'https://www.instagram.com/p/C6R8pWiu7zE/'},
@@ -147,26 +147,26 @@ def lookup_feast_artwork(relative_to, pointer):
 
             '05-01': { 'name': 'Philip and James, Apostles', 'source': 'https://www.instagram.com/p/C6bNVOBOP02/' },
             '05-02': { 'name': 'Athanasius', 'source': 'https://www.instagram.com/p/C6d7j0OOUUl/' },
-            '05-03': { 'name': 'Elisabeth Cruciger', 'url': 'https://en.wikipedia.org/wiki/Elisabeth_Cruciger', 'source': 'https://www.instagram.com/p/C6gbJRUO-bN/'}
+            '05-03': { 'name': 'Elisabeth Cruciger', 'url': 'https://en.wikipedia.org/wiki/Elisabeth_Cruciger', 'source': 'https://www.instagram.com/p/C6gbJRUO-bN/'},
             '05-04': { 'name': 'English Saints and Martyrs of the Reformation Era', 'prec':4},
             '05-08': { 'name': 'Julian of Norwich', 'source': 'https://www.instagram.com/p/C6tQGJ2gK6I/' },
-            '05-09': { 'name': 'Pachomius the Great', 'url': 'https://en.wikipedia.org/wiki/Pachomius_the_Great', 'source': 'https://www.instagram.com/p/C6_SZOgOKbP/' }
-            '05-09': { 'name': 'Gregory the Theologian', 'url': 'https://en.wikipedia.org/wiki/Gregory_of_Nazianzus', 'source': 'https://www.instagram.com/p/C6yTRucOB-p/'}
-            '05-09': { 'name': 'Nikolaus Ludwig von Zinzendorf', 'url': 'https://en.wikipedia.org/wiki/Nicolaus_Zinzendorf', 'source': 'https://www.instagram.com/p/C6y6nVFOvzq/'}
+            '05-09': { 'name': 'Pachomius the Great', 'url': 'https://en.wikipedia.org/wiki/Pachomius_the_Great', 'source': 'https://www.instagram.com/p/C6_SZOgOKbP/' },
+            '05-09': { 'name': 'Gregory the Theologian', 'url': 'https://en.wikipedia.org/wiki/Gregory_of_Nazianzus', 'source': 'https://www.instagram.com/p/C6yTRucOB-p/'},
+            '05-09': { 'name': 'Nikolaus Ludwig von Zinzendorf', 'url': 'https://en.wikipedia.org/wiki/Nicolaus_Zinzendorf', 'source': 'https://www.instagram.com/p/C6y6nVFOvzq/'},
             '05-12': { 'name': 'Gregory Dix', 'url': 'https://en.wikipedia.org/wiki/Gregory_Dix', 'prec':3},
             '05-14': { 'name': 'Matthias the Apostle', 'source': 'https://www.instagram.com/p/DGc_8R_Biq2/' },
             '05-16': { 'name': 'Caroline Chisholm', 'url': 'https://en.wikipedia.org/wiki/Caroline_Chisholm', 'prec':3},
-            '05-15': { 'name': 'Martyrs of Sudan', 'url': 'https://en.wikipedia.org/wiki/Martyrs%27_Day', 'source': 'https://www.instagram.com/p/C7CG9U6uSap/'}
+            '05-15': { 'name': 'Martyrs of Sudan', 'url': 'https://en.wikipedia.org/wiki/Martyrs%27_Day', 'source': 'https://www.instagram.com/p/C7CG9U6uSap/'},
             '05-19': { 'name': 'Dunstan', 'source': 'https://www.instagram.com/p/C7HcmtXOzR_/' },
             '05-20': { 'name': 'Alcuin', 'source': 'https://www.instagram.com/p/C7KvFbEujVM/' },
             '05-21': { 'name': 'Helena', 'source': 'https://www.instagram.com/p/C7O5WvXOAiq/'},
             '05-23': { 'name': 'Nicolaus Copernicus', 'url': 'https://en.wikipedia.org/wiki/Nicolaus_Copernicus', 'source': 'https://www.instagram.com/p/C7UHUSEsMma/' },
             '05-24': { 'name': 'John and Charles Wesley', 'source': 'https://www.instagram.com/p/DGvTqkTOuP5/' },
             '05-24': { 'name': 'Jackson Kemper', 'url': 'https://en.wikipedia.org/wiki/Jackson_Kemper', 'source': 'https://www.instagram.com/p/C7WdJMUOVQB/'},
-            '05-24': { 'name': 'Vincent of Lérins', 'url': 'https://en.wikipedia.org/wiki/Vincent_of_Lérins', 'source': 'https://www.instagram.com/p/C7PgifHvLcv/'}
+            '05-24': { 'name': 'Vincent of Lérins', 'url': 'https://en.wikipedia.org/wiki/Vincent_of_Lérins', 'source': 'https://www.instagram.com/p/C7PgifHvLcv/'},
             '05-25': { 'name': 'The Venerable Bede', 'source': 'https://www.instagram.com/p/C7Y-VDaOEMd/'},
             '05-26': { 'name': 'Augustine of Canterbury', 'source': 'https://www.instagram.com/p/C7Z6AG1OWHy/' },
-            '05-26': [ 'name': 'John Calvin', 'url': 'https://en.wikipedia.org/wiki/John_Calvin', 'source': 'https://www.instagram.com/p/C7eAv7vutcP/']
+            '05-26': { 'name': 'John Calvin', 'url': 'https://en.wikipedia.org/wiki/John_Calvin', 'source': 'https://www.instagram.com/p/C7eAv7vutcP/'},
             '05-28': { 'name': 'Lanfranc', 'url': 'https://en.wikipedia.org/wiki/Lanfranc', 'prec':3},
             '05-30': { 'name': 'Josephine Butler', 'source': 'https://www.instagram.com/p/C7l3MIdO0D6/' },
             '05-30': { 'name': 'Joan of Arc', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Joan_of_Arc', 'source': 'https://www.instagram.com/p/C7gpAXZOmcp/' },
@@ -177,7 +177,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '06-02': { 'name': 'Blandina', 'martyr': 1, 'url': 'https://en.wikipedia.org/wiki/Blandina', 'source': 'https://www.instagram.com/p/C7vNsF5OPhh/'},
             '06-03': { 'name': 'Martyrs of Uganda', 'source': 'https://www.instagram.com/p/C7wSr4vugXT/'},
             '06-04': { 'name': 'Petroc', 'url': 'https://en.wikipedia.org/wiki/Saint_Petroc', 'prec':3},
-            '06-04': { 'name': 'John XXIII', 'url': 'https://en.wikipedia.org/wiki/Pope_John_XXIII', 'source': 'https://www.instagram.com/p/C7zBfUVO0F1/'}
+            '06-04': { 'name': 'John XXIII', 'url': 'https://en.wikipedia.org/wiki/Pope_John_XXIII', 'source': 'https://www.instagram.com/p/C7zBfUVO0F1/'},
             '06-05': { 'name': 'Boniface', 'source': 'https://www.instagram.com/p/C71cN4PuIWy/' },
             '06-06': { 'name': 'Ini Kopuria', 'source': 'https://www.instagram.com/p/C734kJPORaY/'},
             '06-08': { 'name': 'Thomas Ken', 'source': 'https://www.instagram.com/p/C79Gb_CuDtQ/' },
@@ -185,7 +185,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '06-10': { 'name': 'Ephrem of Syria', 'source': 'https://www.instagram.com/p/C8B-53KuQfr/'},
             '06-11': { 'name': 'Barnabas the Apostle', 'source': 'https://www.instagram.com/p/C8EqlG9uKvc/' },
             '06-12': { 'name': 'Enmegahbowh', 'url': 'https://en.wikipedia.org/wiki/Enmegahbowh', 'source': 'https://www.instagram.com/p/C8HgRsUOPT1/'},
-            '06-13': { 'name': 'Anthony of Padua', 'url': 'https://en.wikipedia.org/wiki/Anthony_of_Padua', 'source': 'https://www.instagram.com/p/DK2BzgCMHSi/'}
+            '06-13': { 'name': 'Anthony of Padua', 'url': 'https://en.wikipedia.org/wiki/Anthony_of_Padua', 'source': 'https://www.instagram.com/p/DK2BzgCMHSi/'},
             '06-14': { 'name': 'Richard Baxter', 'source': 'https://www.instagram.com/p/DDTJSdHMEwV/'},
             '06-14': { 'name': 'Gilbert Keith Chesterton', 'url': 'https://en.wikipedia.org/wiki/G._K._Chesterton', 'source': 'https://www.instagram.com/p/C8URscFOjou/'},
             '06-14': { 'name': 'Basil the Great', 'url': 'https://en.wikipedia.org/wiki/Basil_of_Caesarea', 'source': 'https://www.instagram.com/p/C8MakrWOAwo/'},
@@ -194,7 +194,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '06-17': { 'name': 'Samuel and Henrietta Barnett', 'url': 'https://en.wikipedia.org/wiki/Samuel_Augustus_Barnett', 'prec':3},
             '06-18': { 'name': 'Bernard Mizeki', 'url': 'https://en.wikipedia.org/wiki/Bernard_Mizeki', 'prec':3},
             '06-19': { 'name': 'Sundar Singh', 'url': 'https://en.wikipedia.org/wiki/Sadhu_Sundar_Singh', 'prec':3},
-            '06-20': { 'name': 'Methodius of Olympus', 'martyr': 1, 'url': 'https://en.wikipedia.org/wiki/Methodius_of_Olympus', 'source': 'https://www.instagram.com/p/DLIxtwYSrto/'}
+            '06-20': { 'name': 'Methodius of Olympus', 'martyr': 1, 'url': 'https://en.wikipedia.org/wiki/Methodius_of_Olympus', 'source': 'https://www.instagram.com/p/DLIxtwYSrto/'},
             '06-22': { 'name': 'Alban', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Saint_Alban', 'source': 'https://www.instagram.com/p/C8hTgt0uaqZ/' },
             '06-23': { 'name': 'Etheldreda', 'url': 'https://en.wikipedia.org/wiki/%C3%86thelthryth', 'prec':4, 'readings': ['Matthew 25:1-13'] },
             '06-24': { 'name': 'The Birth of John the Baptist', 'url': 'https://en.wikipedia.org/wiki/Nativity_of_St._John_the_Baptist', 'source': 'https://www.instagram.com/p/C8mVoTyutpy/' },
@@ -254,7 +254,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '08-24': { 'name': 'Bartholomew the Apostle', 'url': 'https://en.wikipedia.org/wiki/Bartholomew_the_Apostle', 'source': 'https://www.instagram.com/p/C_DUZezuoKA/'},
             '08-25': { 'name': 'Louis', 'url': 'https://en.wikipedia.org/wiki/Louis_of_France', 'source': 'https://www.instagram.com/p/C_E8jbUu3UO/'},
             '08-27': { 'name': 'Monica', 'url': 'https://en.wikipedia.org/wiki/Monica_of_Hippo', 'source': 'https://www.instagram.com/p/C_LF_BrOJWY/' },
-            '08-27': { 'name': 'Simeon Bachos', 'url': 'https://en.wikipedia.org/wiki/Ethiopian_eunuch', 'source': 'https://www.instagram.com/p/C_G86kWS_rn/'}
+            '08-27': { 'name': 'Simeon Bachos', 'url': 'https://en.wikipedia.org/wiki/Ethiopian_eunuch', 'source': 'https://www.instagram.com/p/C_G86kWS_rn/'},
             '08-28': { 'name': 'Augustine', 'url': 'https://en.wikipedia.org/wiki/Augustine_of_Hippo', 'source': 'https://www.instagram.com/p/C_Nm_oDulTa/' },
             '08-29': { 'name': 'The Beheading of John the Baptist', 'url': 'https://en.wikipedia.org/wiki/John_the_Baptist', 'source': 'https://www.instagram.com/p/C_P-y0COnxc/' },
             '08-30': { 'name': 'John Bunyan', 'url': 'https://en.wikipedia.org/wiki/John_Bunyan', 'source': 'https://www.instagram.com/p/C_dMqaXuDs8/' },
@@ -269,7 +269,7 @@ def lookup_feast_artwork(relative_to, pointer):
             '09-05': { 'name': 'Mother Teresa of Calcutta', 'url': 'https://en.wikipedia.org/wiki/Mother_Teresa', 'source': 'https://www.instagram.com/p/C_iMniSOHGq/'},
             '09-06': { 'name': 'Allen Gardiner', 'url': 'https://en.wikipedia.org/wiki/Allen_Gardiner', 'prec':3},
             '09-06': { 'name': 'Hannah More', 'url': 'https://en.wikipedia.org/wiki/Hannah_More', 'source': 'https://www.instagram.com/p/C_ni3-NuGp1/'},
-            '09-07': { 'name': 'Evertius of Orléans', 'url': 'https://en.wikipedia.org/wiki/Euverte_d%27Orléans', 'source': 'https://www.instagram.com/p/C_tRSn2uiwy/'}
+            '09-07': { 'name': 'Evertius of Orléans', 'url': 'https://en.wikipedia.org/wiki/Euverte_d%27Orléans', 'source': 'https://www.instagram.com/p/C_tRSn2uiwy/'},
             '09-08': { 'name': 'The Birth of the Blessed Virgin Mary', 'url': 'https://en.wikipedia.org/wiki/Nativity_of_Mary', 'prec':4, 'readings': ['Ruth 4:13-16', 'James 1:17-18', 'Luke 8:19-21'] },
             '09-09': { 'name': 'Charles Fuge Lowder', 'url': 'https://en.wikipedia.org/wiki/Charles_Fuge_Lowder', 'prec':3},
             '09-09': { 'name': 'Constance and Her Companions', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/St._Mary%27s_Episcopal_Cathedral_(Memphis,_Tennessee)', 'source': 'https://www.instagram.com/p/C_sRKc3Oij0/'},
@@ -283,11 +283,11 @@ def lookup_feast_artwork(relative_to, pointer):
             '09-17': { 'name': 'Hildegard', 'url': 'https://en.wikipedia.org/wiki/Hildegard_of_Bingen', 'source': 'https://www.instagram.com/p/DATHKHpOqES/' },
             '09-19': { 'name': 'Theodore', 'url': 'https://en.wikipedia.org/wiki/Theodore_of_Tarsus', 'source': 'https://www.instagram.com/p/DADyZdnuQom/'},
             '09-20': { 'name': 'John Coleridge Patteson and companions', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/John_Coleridge_Patteson', 'source': 'https://www.instagram.com/p/DAI8hwyOHnB/' },
-            '09-20': { 'name': 'Andrew Kim Taegon', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Andrew_Kim_Taegon', 'source': https://www.instagram.com/p/C7jW99EOmfT/' },
+            '09-20': { 'name': 'Andrew Kim Taegon', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Andrew_Kim_Taegon', 'source': 'https://www.instagram.com/p/C7jW99EOmfT/' },
             '09-21': { 'name': 'Matthew the Evangelist', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Matthew_the_Evangelist', 'source': 'https://www.instagram.com/p/DALnkyrO0HM/'},
             '09-25': { 'name': 'Lancelot Andrewes', 'url': 'https://en.wikipedia.org/wiki/Lancelot_Andrewes', 'source': 'https://www.instagram.com/p/DAYhUEBOLtM/' },
             '09-25': { 'name': 'Sergius of Radonezh', 'url': 'https://en.wikipedia.org/wiki/Serge_of_Radonezh', 'source': 'https://www.instagram.com/p/DAVhlDNOWJQ/'},
-            '09-26': { 'name': 'Wilson Carlile', 'url': 'https://en.wikipedia.org/wiki/Wilson_Carlile', 'source': 'https://www.instagram.com/p/DAbcjF8uzq9/''},
+            '09-26': { 'name': 'Wilson Carlile', 'url': 'https://en.wikipedia.org/wiki/Wilson_Carlile', 'source': 'https://www.instagram.com/p/DAbcjF8uzq9/'},
             '09-27': { 'name': 'Vincent de Paul', 'url': 'https://en.wikipedia.org/wiki/Vincent_de_Paul', 'prec':4, 'readings': ['1 Corinthians 1:25-end', 'Matthew 25:34-40'] },
             '09-29': { 'name': 'Michael and All Angels', 'url': 'https://en.wikipedia.org/wiki/Michaelmas', 'source': 'https://www.instagram.com/p/DAedlnTO7kK/' },
             '09-30': { 'name': 'Jerome', 'url': 'https://en.wikipedia.org/wiki/St._Jerome', 'source': 'https://www.instagram.com/p/DAiV5ZzuQit/'},
