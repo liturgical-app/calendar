@@ -126,9 +126,8 @@ feasts = {
         '03-31': [ { 'name': 'John Donne', 'source': 'https://www.instagram.com/p/C5OJnsSuML-/' } ],
 
         '04-01': [
-            { 'name': 'Frederick Denison Maurice', 'url': 'https://en.wikipedia.org/wiki/Frederick_Denison_Maurice', 'prec':3 },
             { 'name': 'Mary of Egypt', 'url': 'https://en.wikipedia.org/wiki/Mary_of_Egypt', 'source': 'https://www.instagram.com/p/C5WubupuY2B/' },
-            { 'name': 'Frederick Denison Maurice', 'url': 'https://en.wikipedia.org/wiki/F._D._Maurice', 'source': 'https://www.instagram.com/p/C5OocItuiTn/' }
+            { 'name': 'Frederick Denison Maurice', 'source': 'https://www.instagram.com/p/C5OocItuiTn/' }
         ],
         '04-02': [
             { 'name': 'James Lloyd Breck', 'url': 'https://en.wikipedia.org/wiki/James_Lloyd_Breck', 'source': 'https://www.instagram.com/p/C5TOddZud_1/' },
@@ -242,7 +241,7 @@ feasts = {
         ],
         '07-11': [ { 'name': 'Benedict', 'url': 'https://en.wikipedia.org/wiki/Benedict_of_Nursia', 'source': 'https://www.instagram.com/p/C9SCzzzO589/' } ],
         '07-12': [ { 'name': 'Nathan Soderblom', 'url': 'https://en.wikipedia.org/wiki/Nathan_Soderblom', 'source': 'https://www.instagram.com/p/C9UrbQaOOed/'} ],
-        '07-13': [ { 'name': 'Laurence C. Jones', 'url': 'https://en.wikipedia.org/wiki/Laurence_C._Jones', 'source': 'https://www.instagram.com/p/C9SCzzzO589/' } ],
+        '07-13': [ { 'name': 'Laurence C. Jones', 'url': 'https://en.wikipedia.org/wiki/Laurence_C._Jones', 'source': 'https://www.instagram.com/p/C9PhVp0OA1A/' } ],
         '07-14': [ { 'name': 'John Keble', 'url': 'https://en.wikipedia.org/wiki/John_Keble', 'prec':4, 'readings': ['Lamentations 3:19-26', 'Matthew 5:1-8'] } ],
         '07-15': [
             { 'name': 'Swithun', 'url': 'https://en.wikipedia.org/wiki/Swithun', 'prec':4, 'readings': ['James 5:7-11,13-18'] },
@@ -536,15 +535,17 @@ def get_image_source_for_date(date_str, liturgical_result=None):
     if liturgical_result:
         liturgical_name = liturgical_result.get('name')
         liturgical_prec = liturgical_result.get('prec', 0)
-        
-        # Look for entries that match the liturgical name
-        matching_entries = [entry for entry in possible_entries if entry.get('name') == liturgical_name]
-        
-        if matching_entries:
-            # If multiple matching entries, select by cycle
-            selected_entry = matching_entries[cycle_index % len(matching_entries)]
+        if liturgical_prec >= 5:
+            # Only for feasts with prec >= 5, match by name
+            matching_entries = [entry for entry in possible_entries if entry.get('name') == liturgical_name]
+            if matching_entries:
+                # If multiple matching entries, select by cycle
+                selected_entry = matching_entries[cycle_index % len(matching_entries)]
+            else:
+                # If no exact match, select by cycle from all entries
+                selected_entry = possible_entries[cycle_index % len(possible_entries)]
         else:
-            # If no exact match, select by cycle from all entries
+            # For prec < 5, select by cycle from all entries
             selected_entry = possible_entries[cycle_index % len(possible_entries)]
     else:
         selected_entry = possible_entries[cycle_index % len(possible_entries)]
@@ -571,3 +572,33 @@ def get_image_source_for_date(date_str, liturgical_result=None):
             result['cached'] = False
     
     return result
+
+def find_squashed_artworks():
+    import json
+    from liturgical_calendar.feasts import lookup_feast
+    squashed = []
+    for season, items in feasts.items():
+        for pointer, entries in items.items():
+            if not isinstance(entries, list):
+                entries = [entries]
+            # Get the liturgical name and prec for this date
+            feast = None
+            try:
+                feast = lookup_feast(season, pointer)
+            except Exception:
+                pass
+            if not feast or feast.get('prec', 0) <= 5:
+                continue
+            lit_name = feast.get('name')
+            for entry in entries:
+                if entry.get('name') and entry.get('name') != lit_name:
+                    squashed.append({
+                        'season': season,
+                        'pointer': pointer,
+                        'liturgical_name': lit_name,
+                        'prec': feast.get('prec'),
+                        'artwork_name': entry.get('name'),
+                        'source': entry.get('source', None)
+                    })
+    print(json.dumps(squashed, indent=2, ensure_ascii=False))
+    return squashed
