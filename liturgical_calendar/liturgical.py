@@ -10,6 +10,7 @@ from datetime import datetime, date
 from .funcs import get_easter, get_advent_sunday, date_to_days, day_of_week, add_delta_days, colour_code, get_week_number, render_week_name
 from .feasts import lookup_feast
 from .readings import get_readings_for_date
+from .artwork import get_image_source_for_date
 
 ##########################################################################
 
@@ -256,6 +257,11 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     else:
         if result['prec'] < 5:
             result['readings'] += get_readings_for_date(f_date.strftime("%Y-%m-%d"), result)
+
+    # Get artwork for this date
+    artwork = get_image_source_for_date(f_date.strftime("%Y-%m-%d"), result)
+    if artwork:
+        result['artwork'] = artwork
 
     return result
 
