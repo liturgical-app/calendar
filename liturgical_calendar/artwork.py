@@ -2,6 +2,8 @@
 This is a massive function which effectively contains all of the data from this Wikipedia page:
 https://en.wikipedia.org/wiki/Calendar_of_saints_(Church_of_England)
 """
+from pathlib import Path
+
 feasts = {
 
     # Anglican Holy Days are variously categorised as Principal Feasts,
@@ -483,11 +485,12 @@ def get_image_source_for_date(date_str, liturgical_result=None):
         date_str: Date string in YYYY-MM-DD format
         liturgical_result: Optional result from liturgical_calendar to help prioritize feasts
     Returns:
-        dict: Artwork object with 'source', 'name', 'url' (if exists), and 'martyr' (if exists) keys
+        dict: Artwork object with 'source', 'name', 'url' (if exists), 'martyr' (if exists),
+              'cached_file' (if cached), and 'cached' (bool) keys
     """
     from datetime import datetime
     from .readings import get_yearly_cycle
-    from .funcs import get_easter, date_to_days
+    from .funcs import get_easter, date_to_days, get_cache_filename
     
     # Parse the date
     date_obj = datetime.strptime(date_str, "%Y-%m-%d").date()
@@ -554,4 +557,17 @@ def get_image_source_for_date(date_str, liturgical_result=None):
         result['url'] = selected_entry['url']
     if 'martyr' in selected_entry:
         result['martyr'] = selected_entry['martyr']
+    
+    # Add cached file info
+    source_url = selected_entry.get('source')
+    if source_url:
+        cache_filename = get_cache_filename(source_url)
+        cached_path = Path(__file__).parent.parent / 'cache' / cache_filename
+        if cached_path.exists():
+            result['cached_file'] = str(cached_path)
+            result['cached'] = True
+        else:
+            result['cached_file'] = None
+            result['cached'] = False
+    
     return result

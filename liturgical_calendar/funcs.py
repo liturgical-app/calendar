@@ -183,3 +183,23 @@ def render_week_name(season, weekno):
         week = season
 
     return week, season
+
+def get_cache_filename(source_url):
+    """
+    Generate a cache filename based on the source URL.
+    Uses a hash of the URL to ensure unique filenames.
+    """
+    import hashlib
+    from urllib.parse import urlparse
+    # Create a hash of the URL
+    url_hash = hashlib.md5(source_url.encode()).hexdigest()
+    # Try to extract a meaningful name from the URL
+    parsed = urlparse(source_url)
+    path_parts = parsed.path.split('/')
+    # Look for the post ID in Instagram URLs
+    if 'instagram.com' in source_url:
+        for part in path_parts:
+            if part and part != 'p':
+                return f"instagram_{part}_{url_hash[:8]}.jpg"
+    # Fallback to just the hash
+    return f"image_{url_hash}.jpg"
