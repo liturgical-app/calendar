@@ -38,9 +38,15 @@ def get_advent_sunday(year: int) -> int:
     Return
     ------
       offset: int
-        The numnber of days that Advent Sunday falls before Christmas day
+        The number of days that Advent Sunday falls before Christmas day
     """
-    return -(day_of_week(year,12,25) + 3*7)
+    christmas = date(year, 12, 25)
+    possible_advent = christmas - timedelta(days=28)
+    # Move forward to the next Sunday if needed
+    while possible_advent.weekday() != 6:  # 6 = Sunday in Python's weekday()
+        possible_advent += timedelta(days=1)
+    offset = (possible_advent - christmas).days
+    return offset
 
 def date_to_days(year: int, month: int, day: int) -> int:
     """
@@ -162,22 +168,24 @@ def get_week_number(given_date: date) -> int:
   delta_days = (given_date - start_of_year).days
   return delta_days // 7 + 1
 
-def render_week_name(season, weekno):
+def render_week_name(season, weekno, easter_point=None):
     """
     Render a Week name with or without number
     """
     if weekno and weekno > 0:
-        if season in ['Ordinary Time', 'Trinity']:
+        # Check if this is the first week of Trinity (easter_point 56-62)
+        if season == 'Trinity' and easter_point is not None and 56 <= easter_point < 63:
+            week = 'Trinity'
+        elif season in ['Ordinary Time', 'Trinity']:
             weekname = 'Proper'
+            week = f"{weekname} {weekno}"
         else:
             weekname = season
+            week = f"{weekname} {weekno}"
 
-        week = f"{weekname} {weekno}"
-
-        # Deal with Pre-Lent and Pre-Advent
+        # Deal with Pre-Lent and Pre-Advent week names (but don't change season)
         if season in ['Pre-Lent', 'Pre-Advent']:
             weekname = season.removeprefix('Pre-')
-            season = 'Ordinary Time'
             week = f"{weekno} before {weekname}"
     else:
         week = season
