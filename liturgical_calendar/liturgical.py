@@ -178,22 +178,83 @@ def liturgical_calendar(s_date: str, transferred: bool = False):
     season_url = season_urls.get(season, 'https://en.wikipedia.org/wiki/Ordinary_Time')
 
     # Handle special cases that need weekday_reading
-    if easter_point <= -62 and easter_point > -82:
-        # Pre-Lent weekday_reading for earlier weeks
-        weekday_reading = render_week_name('Pre-Lent',  (easter_point + 49) // 7 + 1, easter_point)[0]
-    elif christmas_point >= advent_sunday - 28 and christmas_point < advent_sunday and easter_point >= 56:
-        season = 'Pre-Advent'
-        weekno = 1 + -1 * (christmas_point - advent_sunday + 1) // 7
+    if easter_point >= -62 and easter_point <= -47:
+        # Pre-Lent weekday_reading
+        weekday_reading = render_week_name('Pre-Lent',  ((-49 - easter_point + dayofweek) // 7) + 1, easter_point)[0]
+    elif christmas_point >= advent_sunday and christmas_point <= -1:
+        # Advent weekday_reading
+        weekday_reading = render_week_name('Advent', 1 + (christmas_point - advent_sunday) // 7, easter_point)[0]
+    elif christmas_point >= 0 and christmas_point <= 11:
+        # Christmas weekday_reading
+        if christmas_point == 0:
+            weekday_reading = 'Christmas 1'
+        else:
+            weekday_reading = render_week_name('Christmas', 1 + (christmas_point - dayofweek) // 7, easter_point)[0]
+    elif christmas_point >= 12 and christmas_point < 40:
+        # Epiphany weekday_reading
+        weekno = max(1, 1 + (christmas_point - 12 - dayofweek) // 7)
+        weekday_reading = render_week_name('Epiphany', weekno, easter_point)[0]
+    elif easter_point > -47 and easter_point < -7:
+        # Lent weekday_reading
+        # For weekdays, use the week number of the Sunday that starts this week
+        if dayofweek == 0:
+            # It's a Sunday, use the current week number
+            first_sunday_lent_easter_point = -42
+            weeks_from_first_sunday = (easter_point - first_sunday_lent_easter_point + dayofweek) // 7
+            weekno = max(1, weeks_from_first_sunday + 1)
+            weekday_reading = render_week_name('Lent', weekno, easter_point)[0]
+        else:
+            # It's a weekday, calculate the Sunday's week number
+            sunday_days = days - dayofweek
+            sunday_y, sunday_m, sunday_d = add_delta_days(sunday_days)
+            sunday_days_from_epoch = date_to_days(sunday_y, sunday_m, sunday_d)
+            sunday_easter_point = sunday_days_from_epoch - easterday
+            first_sunday_lent_easter_point = -42
+            sunday_weeks_from_first_sunday = (sunday_easter_point - first_sunday_lent_easter_point) // 7
+            sunday_weekno = max(1, sunday_weeks_from_first_sunday + 1)
+            weekday_reading = render_week_name('Lent', sunday_weekno, easter_point)[0]
+    elif easter_point >= -7 and easter_point < 0:
+        # Holy Week weekday_reading
+        weekday_reading = 'Holy Week'
+    elif easter_point >= 0 and easter_point < 49:
+        # Easter weekday_reading
+        if dayofweek == 0:
+            weekno = 1 + easter_point // 7
+        else:
+            weekno = easter_point // 7
+            if weekno < 1:
+                weekno = 1
+        weekday_reading = render_week_name('Easter', weekno, easter_point)[0]
+    elif easter_point >= 49 and easter_point < 56:
+        # Pentecost weekday_reading
+        weekday_reading = 'Pentecost'
     elif easter_point >= 56 and easter_point < 63:
-        weekno = 0
+        # Trinity Sunday
+        weekday_reading = 'Trinity'
     else:
-        weekday_reading = f"Trinity {(easter_point - 56) // 7 + 1}"
+        # Trinity weekday_reading or 'N before Advent' for the last four weeks before Advent
+        # Calculate weeks until Advent Sunday using absolute day numbers
+        advent_sunday_abs = date_to_days(year, 12, 25) + advent_sunday
+        weeks_until_advent = (advent_sunday_abs - days) // 7
+        if 0 <= weeks_until_advent <= 4:
+            # 0 = Advent Sunday itself, 1-4 = weeks before Advent
+            if weeks_until_advent == 0:
+                weekday_reading = 'Advent 1'
+            else:
+                weekday_reading = f"{weeks_until_advent} before Advent"
+        else:
+            trinity_week = (easter_point - 56) // 7 + 1
+            weekday_reading = f"Trinity {trinity_week}"
 
     # Render a Week name with or without number
     # For weekdays, determine the week name based on the Sunday that starts the week
     if dayofweek == 0:
         # It's a Sunday, use the current season
-        week, season = render_week_name(season, weekno, easter_point)
+        # Special case: if weekday_reading is "N before Advent", use that for the week name too
+        if weekday_reading and weekday_reading.endswith(' before Advent'):
+            week = weekday_reading
+        else:
+            week, season = render_week_name(season, weekno, easter_point)
     else:
         # It's a weekday, calculate what the season would be for the Sunday that starts this week
         # Go back to the previous Sunday
