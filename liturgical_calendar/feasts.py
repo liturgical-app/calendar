@@ -171,7 +171,7 @@ def lookup_feast(datecode):
         10814: { 'name': 'Maximilian Kolbe', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Maximilian_Kolbe', 'prec':3},
         10815: { 'name': 'The Blessed Virgin Mary', 'url': 'https://en.wikipedia.org/wiki/Blessed_Virgin_Mary', 'prec':7},
         10820: { 'name': 'Bernard', 'url': 'https://en.wikipedia.org/wiki/Bernard_of_Clairvaux', 'prec':4},
-        10824: { 'name': 'Bartholomew the Apostle', 'url': 'https://en.wikipedia.org/wiki/Bartholomew_the_Apostle', 'prec':7},
+        10824: { 'name': 'Bartholomew the Apostle', 'martyr':1, 'url': 'https://en.wikipedia.org/wiki/Bartholomew_the_Apostle', 'prec':7},
         10827: { 'name': 'Monica', 'url': 'https://en.wikipedia.org/wiki/Monica_of_Hippo', 'prec':4},
         10828: { 'name': 'Augustine', 'url': 'https://en.wikipedia.org/wiki/Augustine_of_Hippo', 'prec':4},
         10829: { 'name': 'The Beheading of John the Baptist', 'url': 'https://en.wikipedia.org/wiki/John_the_Baptist', 'prec':4},
